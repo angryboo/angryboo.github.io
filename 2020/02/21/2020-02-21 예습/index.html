@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"angryboo.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="연산자 연산자는 하나 이상의 표현식을 대상으로 산술, 할당, 비교 논리, 타입 지수연산 등을 수행해 하나의 값을 만듬 연산의 대상은 피 연산자라고 함 피연산자는 값으로 평가될 수 있는 표현식이어야 함  산술연산자 피연산자를 대상으로 수학적 계산을 수행해 새로운 숫자값을 만듬  이항 산술 연산자 2개의 피연산자를 산술 연산하여 숫자 타입의 값을 만듬 모든 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020-02-21 예습">
+<meta property="og:url" content="https://angryboo.github.io/2020/02/21/2020-02-21%20%EC%98%88%EC%8A%B5/index.html">
+<meta property="og:site_name" content="angryboo">
+<meta property="og:description" content="연산자 연산자는 하나 이상의 표현식을 대상으로 산술, 할당, 비교 논리, 타입 지수연산 등을 수행해 하나의 값을 만듬 연산의 대상은 피 연산자라고 함 피연산자는 값으로 평가될 수 있는 표현식이어야 함  산술연산자 피연산자를 대상으로 수학적 계산을 수행해 새로운 숫자값을 만듬  이항 산술 연산자 2개의 피연산자를 산술 연산하여 숫자 타입의 값을 만듬 모든 이">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2020-02-21T11:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-21T11:46:53.644Z">
+<meta property="article:author" content="angryboo">
+<meta property="article:tag" content="vs">
+<meta property="article:tag" content=" html">
+<meta property="article:tag" content=" css">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://angryboo.github.io/2020/02/21/2020-02-21%20%EC%98%88%EC%8A%B5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>2020-02-21 예습 | angryboo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">angryboo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">angryboo blog</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>홈</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>아카이브</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/02/21/2020-02-21%20%EC%98%88%EC%8A%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2020-02-21 예습
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-02-21 20:00:00 / Updated at: 20:46:53" itemprop="dateCreated datePublished" datetime="2020-02-21T20:00:00+09:00">2020-02-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h1><ul>
+<li>연산자는 하나 이상의 표현식을 대상으로 산술, 할당, 비교 논리, 타입 지수연산 등을 수행해 하나의 값을 만듬</li>
+<li>연산의 대상은 피 연산자라고 함</li>
+<li>피연산자는 값으로 평가될 수 있는 표현식이어야 함</li>
+</ul>
+<h2 id="산술연산자"><a href="#산술연산자" class="headerlink" title="산술연산자"></a>산술연산자</h2><ul>
+<li>피연산자를 대상으로 수학적 계산을 수행해 새로운 숫자값을 만듬</li>
+</ul>
+<h3 id="이항-산술-연산자"><a href="#이항-산술-연산자" class="headerlink" title="이항 산술 연산자"></a>이항 산술 연산자</h3><ul>
+<li>2개의 피연산자를 산술 연산하여 숫자 타입의 값을 만듬</li>
+<li>모든 이항 산술 연산자는 피연산자의 값을 변경하는 부수효과가 없음</li>
+</ul>
+<p>‘+’ 덧셈<br>‘-‘ 뻴셈<br>‘*’ 곱셈<br>‘/‘ 나눗셈<br>‘%’ 나머지</p>
+<h3 id="단항-산술-연산자"><a href="#단항-산술-연산자" class="headerlink" title="단항 산술 연산자"></a>단항 산술 연산자</h3><ul>
+<li>단항 산술 연산자는 11개의 피연산자를 산술 연산하여 숫자 타입의 값을 만듬</li>
+<li>증가(++), 감소(–) 연산자는 피연산자의 값을 변경하는 부수효과가 있음(피연산자의 값을 변경하는 암묵적 할당이 이루어짐)</li>
+</ul>
+<p>‘++’ 증가 (부수효과 있음)<br>‘–’ 감소 (부수효과 있음)<br>‘+’ 어떠한 효과도 없다, 음수를 양수로 반전하지도 않는다<br>‘-‘ 양수를 음수로 음수를 양수로 반전한 값을 반환한다</p>
+<h3 id="문자열-연결-연산자"><a href="#문자열-연결-연산자" class="headerlink" title="문자열 연결 연산자"></a>문자열 연결 연산자</h3><ul>
+<li>+연산자는 피연산자 중 하나 이상이 문자열인 경우 문자열 연결 연산자로 동작한다</li>
+</ul>
+<h2 id="할당-연산자"><a href="#할당-연산자" class="headerlink" title="할당 연산자"></a>할당 연산자</h2><ul>
+<li>할당 연산자는 우항에 있는 피연산자의 평가 결과를 좌할에 있는 변수에 할당한다.</li>
+</ul>
+<h2 id="비교-연산자"><a href="#비교-연산자" class="headerlink" title="비교 연산자"></a>비교 연산자</h2><ul>
+<li>비교 연산자는 좌항과 우항의 피연산자를 비교한 다음 그 결과를 불리언 값을 반환한다</li>
+<li>비교 연산자는 제어문의 조건식에서 주로 사용한다</li>
+</ul>
+<h3 id="동등-일치-비교-연산자"><a href="#동등-일치-비교-연산자" class="headerlink" title="동등 / 일치 비교 연산자"></a>동등 / 일치 비교 연산자</h3><ul>
+<li>동등 비교 연산자와 일치 비교 연산자는 좌항과 우항의 피연산자가 같은 값을 갖는지 비교하여 불리언 값을 반환한다</li>
+<li>동등 비교 연산자는 느슨한 비교를 하지만 일치 비교 연산자는 엄격한 비교를 한다</li>
+</ul>
+<ul>
+<li>x == y : x와 y의 값이 같음 (동등비교)</li>
+<li>x === y : x와 y의 값과 타입이 같음 (일치비교)</li>
+<li>x != y : x와 y의 값이 다름 (부동등비교)</li>
+<li>x !== y : x와 y의 값과 타입이 다름 (불일치비교)</li>
+</ul>
+<h3 id="대소-관계-비교-연산자"><a href="#대소-관계-비교-연산자" class="headerlink" title="대소 관계 비교 연산자"></a>대소 관계 비교 연산자</h3><ul>
+<li>대소관계 비교 연산자는 치연산자의 크기를 비교하여 불리언 값을 반환한다</li>
+</ul>
+<ul>
+<li>x &gt; y : x가 y보다 크다</li>
+<li>x &lt; y : x가 y보다 작다</li>
+<li>x &gt;= y : x가 y보다 같거나 크다 </li>
+<li>x &lt;= y : x가 y보다 같거나 작다</li>
+</ul>
+<h2 id="삼항-조건-연산자"><a href="#삼항-조건-연산자" class="headerlink" title="삼항 조건 연산자"></a>삼항 조건 연산자</h2><ul>
+<li>조건식의 평가 결과에 따라 반환할 값을 경정함<ul>
+<li>조건식 ? 조건식이 true일때 반환할 값 : 조건식이 false일때 반환할 값</li>
+</ul>
+</li>
+</ul>
+<h2 id="논리연산자"><a href="#논리연산자" class="headerlink" title="논리연산자"></a>논리연산자</h2><ul>
+<li>논리 연산자는 우항과 좌항의 피연산자를 논리 연산한다.</li>
+</ul>
+<ul>
+<li>|| : or</li>
+<li>&amp;&amp; : and</li>
+<li>! : not</li>
+</ul>
+<h2 id="쉼표연산자"><a href="#쉼표연산자" class="headerlink" title="쉼표연산자"></a>쉼표연산자</h2><ul>
+<li>왼쪽 피연산자 부터 차례대로 피연산자를 평가하고 마지막 피연산자의 평가가 끝나면 마지막 피연산자의 평가 결과를 반환한다</li>
+</ul>
+<h2 id="그룹-연산자"><a href="#그룹-연산자" class="headerlink" title="그룹 연산자"></a>그룹 연산자</h2><ul>
+<li>그룹 연산자 ()는 피연산자의 표현식을 가장 먼저 평가한다. 따라서 그룹 연산자를 사용하면 연산자의 우선순위를 조절할 수 있다</li>
+</ul>
+<h2 id="typeof-연산자"><a href="#typeof-연산자" class="headerlink" title="typeof 연산자"></a>typeof 연산자</h2><ul>
+<li>typeof연산자는 피연산자의 타입을 문자열로 반환한다</li>
+</ul>
+<h2 id="지수연산자"><a href="#지수연산자" class="headerlink" title="지수연산자"></a>지수연산자</h2><ul>
+<li>ES7에서 새롭게 도입됨</li>
+<li>좌항의 피연산자를 밑으로 우항의 피연산자를 지수로 거듭제곱하여 숫자 타입의 값을 반환 함</li>
+</ul>
+<p>#</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/20/2020-02-20%20%EC%98%88%EC%8A%B5/" rel="prev" title="2020-02-20 예습">
+      <i class="fa fa-chevron-left"></i> 2020-02-20 예습
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#연산자"><span class="nav-number">1.</span> <span class="nav-text">연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#산술연산자"><span class="nav-number">1.1.</span> <span class="nav-text">산술연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#이항-산술-연산자"><span class="nav-number">1.1.1.</span> <span class="nav-text">이항 산술 연산자</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#단항-산술-연산자"><span class="nav-number">1.1.2.</span> <span class="nav-text">단항 산술 연산자</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#문자열-연결-연산자"><span class="nav-number">1.1.3.</span> <span class="nav-text">문자열 연결 연산자</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#할당-연산자"><span class="nav-number">1.2.</span> <span class="nav-text">할당 연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#비교-연산자"><span class="nav-number">1.3.</span> <span class="nav-text">비교 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#동등-일치-비교-연산자"><span class="nav-number">1.3.1.</span> <span class="nav-text">동등 &#x2F; 일치 비교 연산자</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#대소-관계-비교-연산자"><span class="nav-number">1.3.2.</span> <span class="nav-text">대소 관계 비교 연산자</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#삼항-조건-연산자"><span class="nav-number">1.4.</span> <span class="nav-text">삼항 조건 연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#논리연산자"><span class="nav-number">1.5.</span> <span class="nav-text">논리연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#쉼표연산자"><span class="nav-number">1.6.</span> <span class="nav-text">쉼표연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#그룹-연산자"><span class="nav-number">1.7.</span> <span class="nav-text">그룹 연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof-연산자"><span class="nav-number">1.8.</span> <span class="nav-text">typeof 연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#지수연산자"><span class="nav-number">1.9.</span> <span class="nav-text">지수연산자</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">angryboo</p>
+  <div class="site-description" itemprop="description">I can do this all day</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">태그</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angryboo</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
