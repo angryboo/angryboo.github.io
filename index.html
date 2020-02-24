@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">작성일</span>
               
 
-              <time title="Post created: 2020-02-24 18:50:18 / Updated at: 20:44:58" itemprop="dateCreated datePublished" datetime="2020-02-24T18:50:18+09:00">2020-02-24</time>
+              <time title="Post created: 2020-02-24 18:50:18 / Updated at: 22:02:54" itemprop="dateCreated datePublished" datetime="2020-02-24T18:50:18+09:00">2020-02-24</time>
             </span>
 
           
@@ -290,7 +290,106 @@
 
 </li>
 </ul>
-<h1 id="객체-리터럴"><a href="#객체-리터럴" class="headerlink" title="객체 리터럴"></a>객체 리터럴</h1>
+<h1 id="객체-리터럴"><a href="#객체-리터럴" class="headerlink" title="객체 리터럴"></a>객체 리터럴</h1><h2 id="1-객체란"><a href="#1-객체란" class="headerlink" title="1. 객체란?"></a>1. 객체란?</h2><ul>
+<li>자바스크립트는 객채(object)기반의 프로그래밍 언어임</li>
+<li>자바 스크립트를 이루고 있는 거의 “모든 것”이 객체임</li>
+<li>원시값을 제외한 나머지 값을(함수, 배열, 정규 표현식)은 모두 객체임</li>
+<li>원시 타입은 닫 하나의 값만 나타내지만 객체 타입(object / reference type)은 다양한 타입의 값들을 하나 단위로 구성한 자료구조임</li>
+<li>원시 타입의 값은 변경 불가능한 값이지만 객체는 변경 가능한 값임</li>
+<li>객체는 키(key)와 값(value)으로 구성된 프로퍼티(Property)들의 집합이다<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'song'</span>,</span><br><span class="line">  age: <span class="number">32</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// name, age --&gt; 프로퍼티 키</span></span><br><span class="line"><span class="comment">// 'song', 32 --&gt; 프로퍼티 값</span></span><br><span class="line"><span class="comment">// name: 'song' --&gt; 프로퍼티</span></span><br></pre></td></tr></table></figure></li>
+<li>자바스크립트에서 사용할 수 있는 모든 값은 프로퍼티 값이 될 수 있음</li>
+<li>자바스크립트 함수는 일습 객체 이므로 값으로 취급할 수 있다.</li>
+<li>프로퍼티 값이 함수일 경우 일반 함수와 구분하기 위해 메소드(Method)라 부른다<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> counter = &#123;</span><br><span class="line">  num: <span class="number">0</span>, <span class="comment">// 프로퍼티</span></span><br><span class="line">  increase: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.num++;</span><br><span class="line">  &#125; <span class="comment">// 메소드</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>프로퍼티 : 객체의 상태를 나타내는 값(data)</li>
+<li>메소드 : 프로퍼티(상태 데이터)를 참조하고 조작할 수 있는 동작(behavior)</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-객체-리터럴에-의한-객체-생성"><a href="#2-객체-리터럴에-의한-객체-생성" class="headerlink" title="2. 객체 리터럴에 의한 객체 생성"></a>2. 객체 리터럴에 의한 객체 생성</h2><ul>
+<li><p>C++과 Java같은 클래스 기반 객체지향 언어는 클래스를 사전에 정의하고 필요한 시점에 new연산자와 함께 생성자(constructor)를 호출하여 인스턴스를 생성하는 방식으로 객체를 생성한다</p>
+<ul>
+<li>인스턴스 : 클래스에 의해 생성되어 메모리에 저장된 실체</li>
+</ul>
+</li>
+<li><p>자바스크립트는 프로토타입 기반 객체 지향 언어로서 클래스 기반 객체지향 언어와는 다른 다양한 객체 생성 방법이 존재하는데 아래와 같다</p>
+<ul>
+<li>객체 리터럴</li>
+<li>Object 생성자 함수</li>
+<li>생성자 함수</li>
+<li>Object.create 메소드</li>
+<li>클래스(ES6)</li>
+</ul>
+<ul>
+<li>위 객체 생성 방법 중 객체 리터럴 방법이 일반적이고 간단하다(객체 리터럴은 객체를 생성하는 표기법이다)</li>
+<li>객체 리터럴은 중괄호 {} 내에 0개 이상의 프로퍼티를 정의한다.</li>
+<li>변수의 할당이 이루어 지는 시점에 자바스크립트 엔진은 객체 리터럴을 해석하여 객체를 생성한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'song'</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hello! My name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>.`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> person); <span class="comment">// object 출력</span></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: "song", sayHello: f&#125; 출력</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>만약 중괄호 내 프로퍼티를 정하지 않으면 빈 객체가 생성된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;&#125;; <span class="comment">// 빈 객체</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> person); <span class="comment">// object 출력</span></span><br></pre></td></tr></table></figure></li>
+<li><p>객체 리터럴의 중괄호는 코드블럭을 의미하는 것이 아님</p>
+</li>
+<li><p>코드블록의 중괄호 뒤에는 세미콜론을 붙이지 않지만 객체 리터럴은 값으로 평가되는 표현식이므로 객체를 닫는 중괄호 뒤에 세미콜론을 붙인다</p>
+</li>
+<li><p>객체리터럴은 자바스크립트의 유연함과 강력함을 대표하는 객체 생성 방식임</p>
+</li>
+<li><p>객체의 생성과 동시에 프로퍼티를 만들 수 있고 객체를 생성한 이후에 프로퍼티를 동적으로 추가 할 수 있음</p>
+</li>
+</ul>
+<h2 id="3-프로퍼티"><a href="#3-프로퍼티" class="headerlink" title="3. 프로퍼티"></a>3. 프로퍼티</h2><ul>
+<li>객체는 프로퍼티의 집합이며 프로퍼티는 key와 value로 구성 됨</li>
+<li>프로퍼티를 나열할 때는 쉼포’,’로 구분 함</li>
+</ul>
+<ul>
+<li>프로퍼티 키 : 빈 문자열을 포함하는 모든 문자열 또는 symbol값</li>
+<li>프로퍼티 값 : 자바스크립트에서 사용할 수 있는 모든 값</li>
+</ul>
+<ul>
+<li>프로퍼티 키는 값에 접근할 수 있는 이름으로 식별자 역할을 함</li>
+<li>식별자 네이밍 규칙을 반드시 따라야 하는것은 아니나 따르지 않는 이름은 반드시 따옴표를 사용해야 함<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstName: <span class="string">'Buyong'</span>, <span class="comment">// 식별자 네이밍 규칙에 따른 유효한 이름</span></span><br><span class="line">  <span class="string">'last-name'</span>: <span class="string">'Song'</span> <span class="comment">// 식별자 네이밍 규칙에 따르지 않은 유요하지 않은 이름 (- 연산자가 있는 표현식으로 해석 됨)</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;firstName: "Buyong", last-name:"Song"&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>문자열 또는 타입 변환을 통해 문자열로 평가될 수 있는 표현식을 사용해 프로퍼티 키를 동적으로 생성하는 것이 가능함<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> key = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line">obj[key] = <span class="string">'world'</span>; </span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123;hello: world&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>빈 문자열을 프로퍼티 키로 사용해도 에러 발생은 없으나 키로서 의미를 가지지 못함</li>
+<li>프로퍼티 키에 문자열이나 symbol값 이외의 값을 사용하면 암묵적 타입 변환을 통해 문자열이 된다.(프로퍼티 키로 숫자 리터럴을 사용하면 따옴표는 붙지 않지만 내부적으로는 문자열로 변함)</li>
+<li>예약어를 프로퍼티 키로 사용해도 에러 발생은 없으나 예상치 못한 상황이 발생할 수도 있음</li>
+<li>이미 존재하는 프로퍼티 키를 중복 선언하면 나중에 선언한 프로퍼티가 먼저 선언한 프로퍼티를 덮어쓴다.(이때도 에러 발생 없음)</li>
+</ul>
+<h2 id="4-메소드"><a href="#4-메소드" class="headerlink" title="4. 메소드"></a>4. 메소드</h2><ul>
+<li>자바스크립트에서 함수는 일금 객체이다</li>
+<li>함수는 값으로 취급할 수 있으며 프로퍼티의 값이 될 수 있다</li>
+<li>프로퍼티 값이 함수인 경우 일반 함수와 구분하기 위해 메소드(Method)라 부른다</li>
+</ul>
+<h2 id="5-프로퍼티-접근"><a href="#5-프로퍼티-접근" class="headerlink" title="5. 프로퍼티 접근"></a>5. 프로퍼티 접근</h2><ul>
+<li>프로퍼티 값에 접근하려면 마침표(.)를 사용하는 마침표 표기법 또는 대괄호 []를 사용하는 대괄호 표기법을 사용한다</li>
+<li>프로퍼티 키가 식별자 네이밍 규칙을 따르는 이름이면 마침표 표기법과 대괄호 표기법 모두 사용 가능하다</li>
+<li>마침표 또는 대괄호 좌측에는 객체로 평가 될 수 있는 표현식을 기술한다. 마침표 우측 또는 대괄호 내부에는 프로퍼티 키를 지정한다<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'song'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// 마침표 표기법에 의한 접근</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">'name'</span>]); <span class="comment">// 대괄호 표기법에 의한 접근(대괄호 내부 프로퍼티 키는 반드시 따옴표로 감싼 문자열이어랴 함, 따옴표가 없으면 식별자로 해석)</span></span><br></pre></td></tr></table></figure></li>
+<li>프로퍼티 키가 네이밍 규칙을 준수하지 않은 이름이면 반드시 대괄호 표기법을 사용해야 함</li>
+<li>단 프로퍼티 키가 숫자로 이루어진 문자열 일 경우 따옴표 생략 가능</li>
+</ul>
+<h2 id="6-프로퍼티-값-갱신"><a href="#6-프로퍼티-값-갱신" class="headerlink" title="6. 프로퍼티 값 갱신"></a>6. 프로퍼티 값 갱신</h2><ul>
+<li>이미 존재하는 프로퍼티 값을 할당하면 프로퍼티 값이 갱신된다</li>
+</ul>
+<h2 id="7-프로퍼티-동적-생성"><a href="#7-프로퍼티-동적-생성" class="headerlink" title="7. 프로퍼티 동적 생성"></a>7. 프로퍼티 동적 생성</h2><ul>
+<li>존재하지 않는 프로퍼티에 값을 할당하면 프로퍼티가 동적으로 생성되어 추가되고 프로퍼티 값이 할당된다</li>
+</ul>
+<h2 id="8-프로퍼티-삭제"><a href="#8-프로퍼티-삭제" class="headerlink" title="8. 프로퍼티 삭제"></a>8. 프로퍼티 삭제</h2><ul>
+<li>delete연산자는 객체의 프로퍼티를 삭제한다.</li>
+<li>이때 delete연산자의 피연산자는 프로퍼티 값에 접근할 수 있는 펴현식 이어야 한다</li>
+<li>존재하지 않는 프로퍼티를 삭제하면 에러 없이 무시된다<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'song'</span></span><br><span class="line">&#125;;</span><br><span class="line">person.age = <span class="number">32</span>; <span class="comment">// 프로퍼티 동적 생성</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> person.age; <span class="comment">// 동적생성된 age 프로퍼티 삭제 </span></span><br><span class="line"><span class="keyword">delete</span> person.address; <span class="comment">// address 프로퍼티 없음으로 삭제 안됨</span></span><br></pre></td></tr></table></figure>
+<h2 id="9-ES6에서-추가된-객체-리터럴의-확장기능"><a href="#9-ES6에서-추가된-객체-리터럴의-확장기능" class="headerlink" title="9. ES6에서 추가된 객체 리터럴의 확장기능"></a>9. ES6에서 추가된 객체 리터럴의 확장기능</h2></li>
+</ul>
+<h3 id="9-1-프로퍼티-축약-표현"><a href="#9-1-프로퍼티-축약-표현" class="headerlink" title="9-1 프로퍼티 축약 표현"></a>9-1 프로퍼티 축약 표현</h3><ul>
+<li>ES6에서는 프로퍼티 값으로 변수를 사용하는 경우, 변수 이름과 프로퍼티가 동일한 이름일 때 프로퍼티를 생략할 수 있다</li>
+<li>이때 프로퍼티 키는 변수 이름으로 자동 생성된다</li>
+</ul>
+<h3 id="9-2-프로퍼티-키-동적-생성"><a href="#9-2-프로퍼티-키-동적-생성" class="headerlink" title="9-2 프로퍼티 키 동적 생성"></a>9-2 프로퍼티 키 동적 생성</h3><ul>
+<li>문자열 또는 문자열로 변환 가능한 값을 반환하는 표현식을 사용해 프로퍼티를 동적으로 생성할 수 있다</li>
+<li>단 프로퍼티로 사용할 표현식을 대괄호[]로 묶어야 한다</li>
+</ul>
+<h3 id="9-3-메소드-축약표현"><a href="#9-3-메소드-축약표현" class="headerlink" title="9-3 메소드 축약표현"></a>9-3 메소드 축약표현</h3><ul>
+<li>ES6 에서는 메소드를 정의할 때 function키워드를 생략한 축약 표현을 사용할 수 있다</li>
+</ul>
+
       
     </div>
 
