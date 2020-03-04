@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"angryboo.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="생성자 함수에 의한 객체 생성1. Object 생성자 함수">
+  <meta name="description" content="생성자 함수에 의한 객체 생성1. Object 생성자 함수 new 연산자와 함께 Object 생성자 함수를 호출하면 빈 객체를 생성하여 반환한다. 빈객체를 생성한 이후 프로퍼티 또는 메소드를 추가하여 객체를 완성할 수 있다.  12345678910&#x2F;&#x2F;빈객채의 생성const person &#x3D; new ObjectW();&#x2F;&#x2F;프로퍼티 추가person.name &#x3D; &#39;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 수업 예습&#x2F;03-03 생성자 함수에 의한 객체 생성">
 <meta property="og:url" content="https://angryboo.github.io/2020/03/03/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/03-03%20%EC%83%9D%EC%84%B1%EC%9E%90%20%ED%95%A8%EC%88%98%EC%97%90%20%EC%9D%98%ED%95%9C%20%EA%B0%9D%EC%B2%B4%20%EC%83%9D%EC%84%B1/index.html">
 <meta property="og:site_name" content="angryboo">
-<meta property="og:description" content="생성자 함수에 의한 객체 생성1. Object 생성자 함수">
+<meta property="og:description" content="생성자 함수에 의한 객체 생성1. Object 생성자 함수 new 연산자와 함께 Object 생성자 함수를 호출하면 빈 객체를 생성하여 반환한다. 빈객체를 생성한 이후 프로퍼티 또는 메소드를 추가하여 객체를 완성할 수 있다.  12345678910&#x2F;&#x2F;빈객채의 생성const person &#x3D; new ObjectW();&#x2F;&#x2F;프로퍼티 추가person.name &#x3D; &#39;">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2020-03-03T01:51:33.461Z">
-<meta property="article:modified_time" content="2020-03-03T01:52:55.740Z">
+<meta property="article:modified_time" content="2020-03-04T00:26:37.439Z">
 <meta property="article:author" content="angryboo">
 <meta property="article:tag" content="vs">
 <meta property="article:tag" content=" html">
@@ -174,10 +174,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
-              
 
-              <time title="Post created: 2020-03-03 10:51:33 / Updated at: 10:52:55" itemprop="dateCreated datePublished" datetime="2020-03-03T10:51:33+09:00">2020-03-03</time>
+              <time title="Post created: 2020-03-03 10:51:33" itemprop="dateCreated datePublished" datetime="2020-03-03T10:51:33+09:00">2020-03-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-03-04 09:26:37" itemprop="dateModified" datetime="2020-03-04T09:26:37+09:00">2020-03-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -201,7 +207,95 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="생성자-함수에-의한-객체-생성"><a href="#생성자-함수에-의한-객체-생성" class="headerlink" title="생성자 함수에 의한 객체 생성"></a>생성자 함수에 의한 객체 생성</h1><h2 id="1-Object-생성자-함수"><a href="#1-Object-생성자-함수" class="headerlink" title="1. Object 생성자 함수"></a>1. Object 생성자 함수</h2>
+        <h1 id="생성자-함수에-의한-객체-생성"><a href="#생성자-함수에-의한-객체-생성" class="headerlink" title="생성자 함수에 의한 객체 생성"></a>생성자 함수에 의한 객체 생성</h1><h2 id="1-Object-생성자-함수"><a href="#1-Object-생성자-함수" class="headerlink" title="1. Object 생성자 함수"></a>1. Object 생성자 함수</h2><ul>
+<li>new 연산자와 함께 Object 생성자 함수를 호출하면 빈 객체를 생성하여 반환한다.</li>
+<li>빈객체를 생성한 이후 프로퍼티 또는 메소드를 추가하여 객체를 완성할 수 있다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//빈객채의 생성</span></span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> ObjectW();</span><br><span class="line"></span><br><span class="line"><span class="comment">//프로퍼티 추가</span></span><br><span class="line">person.name = <span class="string">'Song'</span>;</span><br><span class="line">person.sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hi! My Name is '</span> + <span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// Object &#123;name: "Song", sayHello: function ()&#125;</span></span><br><span class="line">person.sayHello(); <span class="comment">// Hi! My Name is Song</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>생성자 함수란 new 연산자와 함께 호출하여 격체(인스턴스)를 생성하는 함수를 말한다.</li>
+<li>생성자 함수에 의해 생성된 객채를 인스턴스라 한다.</li>
+</ul>
+<h2 id="2-생성자-함수"><a href="#2-생성자-함수" class="headerlink" title="2. 생성자 함수"></a>2. 생성자 함수</h2><h3 id="2-1-객체-리터럴에-의한-객체-생성-방식의-문제점"><a href="#2-1-객체-리터럴에-의한-객체-생성-방식의-문제점" class="headerlink" title="2-1 객체 리터럴에 의한 객체 생성 방식의 문제점"></a>2-1 객체 리터럴에 의한 객체 생성 방식의 문제점</h3><ul>
+<li>객체 리터럴에 의한 객체 생성 방식은 간편하지만 단 하나의 객채만을 생성하기 때문에 동일한 프로퍼티를 갖는 객채를 여러개 생성하는 경우 비효율적임</li>
+</ul>
+<h3 id="2-2-생성자-함수에-의한-객체-생성-방식의-장점"><a href="#2-2-생성자-함수에-의한-객체-생성-방식의-장점" class="headerlink" title="2-2 생성자 함수에 의한 객체 생성 방식의 장점"></a>2-2 생성자 함수에 의한 객체 생성 방식의 장점</h3><ul>
+<li>생성자 함수에 의한 객체 생성 방식은 마치 객체(인스턴스)를 생성하기 위한 템플릿(클래스) 처럼 생성자 함수를 사용하여 프로퍼티 구조가 동일한 객체 여러개를 간편하게 생성할 수 있다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//생성자함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//생성자 함수 내부의 this는 생성자 함수가 생성할 인스턴스를 가리킨다.</span></span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.getDiameter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * <span class="keyword">this</span>.radius;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인스턴스의 생성</span></span><br><span class="line"><span class="keyword">const</span> circle1 = <span class="keyword">new</span> Circle(<span class="number">5</span>); <span class="comment">// 반지름이 5인 Circle객체를 생성</span></span><br><span class="line"><span class="keyword">const</span> circle2 = <span class="keyword">new</span> Circle(<span class="number">10</span>); <span class="comment">//  반지름이 10인 Circle 객체를 생성</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(circle1.getDiameter()); <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(circle2.getDiameter()); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>this : this 는 객체 자신의 프로퍼티나 메소드를 함조하기 위한 자기 함조변수이다. this가 가리키는 값, 즉 this 바인딩은 함수 호출 방식에 따라 동적으로 결정된다</strong></p>
+<table>
+<thead>
+<tr>
+<th>함수 호출 방식</th>
+<th>this가 가리키는 값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>일반 함수로서 호출</td>
+<td>전역 객체</td>
+</tr>
+<tr>
+<td>메소드로서 호출</td>
+<td>메소드를 호출한 객체</td>
+</tr>
+<tr>
+<td>생성자 함수로서 호출</td>
+<td>생성자 함수가 생성할 인스턴스</td>
+</tr>
+</tbody></table>
+<ul>
+<li>생성자 함수는 말 그대로 객체(인스턴스)를 생성하는 함수이다</li>
+<li>자바와 같은 클래스 기반 객체지향 언어의 생성자 와는 다르게 그 형식이 정해져 있는 것이 아니라 일반 함수와 동일한 방법으로 생성자 함수를 정의하고 <strong>new연산자와 함께 호출하면 해당 함수는 생성자 함수로 동작한다.</strong></li>
+</ul>
+<h3 id="2-3-내부-메소드-Call-과-Construct"><a href="#2-3-내부-메소드-Call-과-Construct" class="headerlink" title="2-3 내부 메소드 [[Call]] 과 [[Construct]]"></a>2-3 내부 메소드 [[Call]] 과 [[Construct]]</h3><ul>
+<li>함수 선언문 또는 함수 표현식으로 정의한 함수는 일반적인 함수로써 호출할 수 있는것을 물론 생성자 ㅎ마수로서 호출할 수 있다.</li>
+<li>생성자 함수로써 호출된다는 것은 new연산자와 함께 호출하여 객체를 생성하는것을 의미한다.</li>
+<li>함수는 객체이므로 일반 객체와 동일하게 동작할 수 있다.</li>
+<li>함수 객체는 일반 객체의 내부 슬롯과 내부 메소드를 모두 가지고 있다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 함수는 객체이다</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수는 객체이므로 프로퍼틸를 소유할 수 있다</span></span><br><span class="line">foo.prop = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수는 객체이므로 메소드를 소유할 수 있다.</span></span><br><span class="line">foo.method = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.prop);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.method();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>내부 메소드 [[Call]]을 갖는 함수 객체를 callable이라 하며, 내부 메소드인 [[Construct]]를 갖는 함수 객체를 constructor, [[Construct]]를 갖지 않은 함수 객체를 non-constructor라고 부른다</li>
+<li>callable은 호출할 수 있는 객체, 즉 함수를 말하며, constructor는 생성자 함수로서 호출할 수 있는 객체를 의미한다.</li>
+<li>생성자 함수로서 호출될 수 있다는 것은 new연산자와 함께 호출되는 것을 의미한다.</li>
+<li>함수가 일밙적인 함수로서 호출되면 함수 객체의 내부 메소드 [[Call]]가 먼저 호출되고 new연산자와 함께 생성자 함수로서 호출되면 내부 메소드 [[Construct]]가 호출된다</li>
+<li>모든 함수 객체는 내부 메소드 [[Call]]을 갖고 있으므로 호출할 수 있다.</li>
+<li>하지만 모든 함수 객체가 [[Construct]]를 갖지는 않는다.</li>
+</ul>
+<h3 id="2-4-constructor와-non-constructor의-구분"><a href="#2-4-constructor와-non-constructor의-구분" class="headerlink" title="2-4 constructor와 non-constructor의 구분"></a>2-4 constructor와 non-constructor의 구분</h3><ul>
+<li>자바 스크립트 엔진은 함수를 생성 할 때 FunctionCrreate라는 추정 연산을 사용한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 일반 함수 정의 : kind = 'Normal'</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="comment">//  프로퍼티 x에 할당된 것은 일반 함수 정의이다. 메소드 정의로 인정하지 않는다.</span></span><br><span class="line"><span class="keyword">const</span> baz = &#123;</span><br><span class="line">  x: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 일반함수로 정의된 함수만이 constructor이다</span></span><br><span class="line"><span class="keyword">new</span> foo(); <span class="comment">//ok</span></span><br><span class="line"><span class="keyword">new</span> bar(); <span class="comment">// ok</span></span><br><span class="line"><span class="keyword">new</span> baz.x(); <span class="comment">//ok</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 화살표 함수 정의 : kind = 'Arrow'</span></span><br><span class="line"><span class="keyword">const</span> arrow = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> arrow(); <span class="comment">// typeError</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 메소드 정의 : kind = 'Method'</span></span><br><span class="line"><span class="comment">// ES6의 메소드 축약 표현만을 메소드 정의로 인정한다.</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  x() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> obj.x(); <span class="comment">//TypeError</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-5-생성자-함수의-인스턴스-생성과정"><a href="#2-5-생성자-함수의-인스턴스-생성과정" class="headerlink" title="2-5 생성자 함수의 인스턴스 생성과정"></a>2-5 생성자 함수의 인스턴스 생성과정</h3><ul>
+<li>생성자 함수의 역할은 프로퍼티 구조가 동일한 인스턴스를 생성하기 위한 템플릿으로서 동작하여 인스턴스를 생성하는것과 생성된 인스턴스를 초기화(인스턴스 프로퍼티 추가 및 초기값 할당)하는 것이다</li>
+<li>생성자 함수가 인스턴스를 생성하는것은 필수이고, 생성된 인스턴스를 초기화 하는것은 옵션이다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//생성자함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 인스턴스 초기화</span></span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.getDiameter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * <span class="keyword">this</span>.radius;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인스턴스의 생성</span></span><br><span class="line"><span class="keyword">const</span> circle1 = <span class="keyword">new</span> Circle(<span class="number">5</span>); <span class="comment">// 반지름이 5인 Circle객체를 생성</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>함수 내부의 코드를 살펴보면 this에 프로퍼티를 추가하고 필요에 따라 인수로 전달된 초기값을 프로퍼티 값으로 할당한다.</li>
+<li>자바 스크입트 엔진은 암묵적인 처리를 통해 인스턴스를 생성하고 반환한다. new 연산자와 함께 생성자 함수가 호출되면 자바 스크립트 엔진은 아래와 같은 과정을 거쳐 인스턴스를 생성하고 초기화 한 후, 인스턴스를 반환한다.<ol>
+<li>인스턴스 생성과 this 바인딩<ul>
+<li>암묵적으로 빈 객체가 생선된다. 이 빈객체가 바로 생성자 함수가 생선한 인스턴스이다. 그리고 암묵적으로 생성된 빈 객체, 즉 인스턴스는 this에 바인딩 된다.</li>
+</ul>
+</li>
+<li>인스턴스 초기화<ul>
+<li>생성자 함수에 기술되어 있는 코드가 실행되어 this에 바인딩 되어있는 인스턴스를 초기화 한다. 즉 this에 바인딩 되어 있는 인스턴스에 프로퍼티나 메소드를 추가하고 생성자 함수가 인수로 전달받은 초기값을 인스턴스 프로퍼티에 할당하여 초기화 하거나 고정값을 할당한다.</li>
+</ul>
+</li>
+<li>인스턴스 반환<ul>
+<li>생성자 함수 내부의 모든 처리가 끝나면 완성된 인스턴스가 바인딩 된 this가 암묵적으로 반환된다.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-6-new연산자"><a href="#2-6-new연산자" class="headerlink" title="2-6 new연산자"></a>2-6 new연산자</h4><ul>
+<li>new 연산자와 함께 생ㅅ어자 람수에 의해 생선된 객체(인스턴스)는 프로토 타입에의해 생성자 함수와 연결된다. 이를 이용해 new연산자와 함께 호출 되었는지를 확인할 수 있다.</li>
+</ul>
+
     </div>
 
     
@@ -279,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#생성자-함수에-의한-객체-생성"><span class="nav-number">1.</span> <span class="nav-text">생성자 함수에 의한 객체 생성</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Object-생성자-함수"><span class="nav-number">1.1.</span> <span class="nav-text">1. Object 생성자 함수</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#생성자-함수에-의한-객체-생성"><span class="nav-number">1.</span> <span class="nav-text">생성자 함수에 의한 객체 생성</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Object-생성자-함수"><span class="nav-number">1.1.</span> <span class="nav-text">1. Object 생성자 함수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-생성자-함수"><span class="nav-number">1.2.</span> <span class="nav-text">2. 생성자 함수</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-객체-리터럴에-의한-객체-생성-방식의-문제점"><span class="nav-number">1.2.1.</span> <span class="nav-text">2-1 객체 리터럴에 의한 객체 생성 방식의 문제점</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-생성자-함수에-의한-객체-생성-방식의-장점"><span class="nav-number">1.2.2.</span> <span class="nav-text">2-2 생성자 함수에 의한 객체 생성 방식의 장점</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-내부-메소드-Call-과-Construct"><span class="nav-number">1.2.3.</span> <span class="nav-text">2-3 내부 메소드 [[Call]] 과 [[Construct]]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-constructor와-non-constructor의-구분"><span class="nav-number">1.2.4.</span> <span class="nav-text">2-4 constructor와 non-constructor의 구분</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-생성자-함수의-인스턴스-생성과정"><span class="nav-number">1.2.5.</span> <span class="nav-text">2-5 생성자 함수의 인스턴스 생성과정</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-new연산자"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">2-6 new연산자</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
