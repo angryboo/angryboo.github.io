@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/03/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/03-03%20%EC%83%9D%EC%84%B1%EC%9E%90%20%ED%95%A8%EC%88%98%EC%97%90%20%EC%9D%98%ED%95%9C%20%EA%B0%9D%EC%B2%B4%20%EC%83%9D%EC%84%B1/">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/10/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-10%20%EC%98%88%EC%8A%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +164,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/03/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/03-03%20%EC%83%9D%EC%84%B1%EC%9E%90%20%ED%95%A8%EC%88%98%EC%97%90%20%EC%9D%98%ED%95%9C%20%EA%B0%9D%EC%B2%B4%20%EC%83%9D%EC%84%B1/" class="post-title-link" itemprop="url">JS 수업 예습/03-03 생성자 함수에 의한 객체 생성</a>
+            <a href="/2020/03/10/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-10%20%EC%98%88%EC%8A%B5/" class="post-title-link" itemprop="url">JS 수업 예습/2020-03-10 예습</a>
         </h1>
 
         <div class="post-meta">
@@ -173,16 +173,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
+              
 
-              <time title="Post created: 2020-03-03 10:51:33" itemprop="dateCreated datePublished" datetime="2020-03-03T10:51:33+09:00">2020-03-03</time>
+              <time title="Post created: 2020-03-10 17:34:45 / Updated at: 17:38:26" itemprop="dateCreated datePublished" datetime="2020-03-10T17:34:45+09:00">2020-03-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-04 09:26:37" itemprop="dateModified" datetime="2020-03-04T09:26:37+09:00">2020-03-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -294,6 +288,33 @@
 <h4 id="2-6-new연산자"><a href="#2-6-new연산자" class="headerlink" title="2-6 new연산자"></a>2-6 new연산자</h4><ul>
 <li>new 연산자와 함께 생ㅅ어자 람수에 의해 생선된 객체(인스턴스)는 프로토 타입에의해 생성자 함수와 연결된다. 이를 이용해 new연산자와 함께 호출 되었는지를 확인할 수 있다.</li>
 </ul>
+<h1 id="함수와-일급객체"><a href="#함수와-일급객체" class="headerlink" title="함수와 일급객체"></a>함수와 일급객체</h1><h2 id="1-일급객체"><a href="#1-일급객체" class="headerlink" title="1. 일급객체"></a>1. 일급객체</h2><ol>
+<li>무명의 리터럴로 생성할 수 있다. 즉 런타임에 생성이 가능하다.</li>
+<li>변수나 자료구조(객체, 배열 등)에 저장할 수 있다.</li>
+<li>함수의 매개변수에게 전달 할 수 있다.</li>
+<li>함수의 결과값으로 반환 할 수 있다.</li>
+</ol>
+<p><strong>함수형 프로그래밍</strong></p>
+<ul>
+<li><p>함수형 프로그래밍은 순수함수와 보조함수의 조합을 통해 외부상태를 변경하는 부수효과를 최소화하여 불변성을 지향하는 프로그래밍</p>
+</li>
+<li><p>함수는 객체이지만 일반 객체와는 차이가 있다. 일반 객체는 호출할 수 없지만 함수 객체는 호출할 수 있다. 그리고 함수 객체에는 일반 객체에 없는 함수 고유의 프로퍼티를 소유한다.</p>
+</li>
+</ul>
+<h2 id="2-함수-객체의-프로퍼티"><a href="#2-함수-객체의-프로퍼티" class="headerlink" title="2. 함수 객체의 프로퍼티"></a>2. 함수 객체의 프로퍼티</h2><ol>
+<li>argument 프로퍼티<ul>
+<li>함수 호출 시 전달 된 인수들의 정보를 담고 있는 유사배열 객체</li>
+<li>함수 내부에서 지역변수처럼 사용</li>
+<li>함수 외부에서 사용할 수 없음</li>
+<li>매개변수 개수를 확정할 수 없는 가변인자 함수를 구현할 때 유용하게 사용됨</li>
+</ul>
+</li>
+<li>caller 프로퍼티</li>
+<li>length 프로퍼티 함수 객체의 length 프로퍼티는 함수 정의 시 선언한 매개변수의 개수를 가리킴</li>
+<li>name 프포퍼티 : 함수 객체의 name 프로퍼티는 함수 이름을 나타낸다.</li>
+<li><em>_Proto</em> 접근자 프로퍼티</li>
+<li>prototype 프로퍼티</li>
+</ol>
 
       
     </div>
