@@ -150,6 +150,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/11/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-12%20%EC%98%88%EC%8A%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/11/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-12%20%EC%98%88%EC%8A%B5/" class="post-title-link" itemprop="url">프로토타입</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-03-11 19:11:41 / Updated at: 20:28:17" itemprop="dateCreated datePublished" datetime="2020-03-11T19:11:41+09:00">2020-03-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">예습</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="프로토타입"><a href="#프로토타입" class="headerlink" title="프로토타입"></a>프로토타입</h1><h2 id="1-객체지향-프로그래밍"><a href="#1-객체지향-프로그래밍" class="headerlink" title="1. 객체지향 프로그래밍"></a>1. 객체지향 프로그래밍</h2><p>객체 지향 프로그래밍은 명령어 또는 함수의 목록으로 보는 전통적인 명령형 프로그래밍의 절차지향적의 관점에서 벗어나 객체들의 집합으로 프로그램을 표현하려는 프로그래밍 패러다임</p>
+<ul>
+<li>객체는 속성을 통해 여려개의 값을 하나의 단위로 구성한 복합적인 자료구조 임</li>
+</ul>
+<h2 id="2-상속과-프로토타입"><a href="#2-상속과-프로토타입" class="headerlink" title="2. 상속과 프로토타입"></a>2. 상속과 프로토타입</h2><ul>
+<li>상속은 어떤 객체의 프로퍼티 또는 메소드를 다른 객체가 상속받아 그대로 사용 할 수 있는것을 말함.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.PI * <span class="built_in">Math</span>.pow(<span class="keyword">this</span>.radius, <span class="number">2</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> circle1 = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">const</span> circle2 = <span class="keyword">new</span> Circle(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(circle1.getArea());</span><br><span class="line"><span class="built_in">console</span>.log(circle2.getArea());</span><br></pre></td></tr></table></figure></li>
+<li>위 예제의 코드를 보면 getArea 메소드는 언제나 변하지 않지만 생성자 함수로 인스턴스가 만들어 질 때마다 중복 생성된다.(getArea가 this로 바인딩 되어 인스턴스의 프로퍼티로 들어감)</li>
+<li>생성자 함수로 생성된 모든 인스턴스가 동일한 메소드를 중복 소유하는 것은 메모리를 불필요하게 낭비함</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">&#125;</span><br><span class="line">Circle.prototype.getArea = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.PI * <span class="built_in">Math</span>.pow(<span class="keyword">this</span>.radius, <span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> circle1 = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">const</span> circle2 = <span class="keyword">new</span> Circle(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(circle1.getArea());</span><br><span class="line"><span class="built_in">console</span>.log(circle2.getArea());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위외 같이 Circle 생성자 함수의 프로토타입에 메소드를 동적 할당하여 인스턴스의 메소드 중복을 해결할 수 있다.</li>
+<li>생성자 함수가 생성한 모든 인스턴스는 자신의 프로토타입의 모든 프로퍼티와 메소드를 상속 받는다.</li>
+</ul>
+<h2 id="3-프로토타입-객체"><a href="#3-프로토타입-객체" class="headerlink" title="3. 프로토타입 객체"></a>3. 프로토타입 객체</h2><ul>
+<li>프로토타입 객체란 객체간 상속을 구현하기 위해 사용된다.</li>
+<li>프로토타입은 어떤 객체의 상위 역할을 하는 객체로써 다른 객체에 공유 프로퍼티를 제공한다.</li>
+<li>프로토타입을 상속받은 하위(자식) 객체는 상위 객체의 프로퍼티를 자신의 프로퍼티 처럼 자유롭게 사용할 수 있다.</li>
+</ul>
+<h3 id="3-1-proto-접근자-프로퍼티"><a href="#3-1-proto-접근자-프로퍼티" class="headerlink" title="3-1 proto 접근자 프로퍼티"></a>3-1 <strong>proto</strong> 접근자 프로퍼티</h3><ul>
+<li>모든 객체는 <strong>proto</strong>접근자 프로퍼티를 통해 자신의 프로토타입, 즉 [[Prototype]] 내부 슬롯에 접근할 수 있음.</li>
+<li><strong><strong>Proto</strong>는 접근자 프로퍼티이다</strong></li>
+<li>[[Prototype]] 내부슬롯은 프로퍼티가 아니기 때문에 직접 접근할 수 없으며 <strong>proto</strong>접근자 프로퍼티를 통해 간접적으로 접근할 수 있다.</li>
+<li>Object.getOwnPropertyDescriptor 로 <strong>proto</strong>에 접근하면 접근자 프로퍼티의 어트피뷰트가 출력 됨</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">y</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> parent = &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.__proto__); <span class="comment">// null : obj객체의 프로토타입은 null</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.y, obj.x); <span class="comment">// 2 undefined : obj 객체에는 현재 y프로퍼티만 존재</span></span><br><span class="line"></span><br><span class="line">obj.__proto__ = parent; <span class="comment">// obj객체의 __proto__ setter함수에 parent객체를 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.__proto__); <span class="comment">// Object &#123;x: 1&#125; : obj 객체의 프로토타입에 obj객체가 할당 됨</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.y, obj.x); <span class="comment">// 2 1 : obj 객체가 parent객체의 x 프로퍼티를 상속받아 출력</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/10/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-10%20%EC%98%88%EC%8A%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2122,65 +2216,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/02/10/1st-post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="angryboo">
-      <meta itemprop="description" content="I can do this all day">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="angryboo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/10/1st-post/" class="post-title-link" itemprop="url">1st-post</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-              
-
-              <time title="Post created: 2020-02-10 12:37:52 / Updated at: 12:39:46" itemprop="dateCreated datePublished" datetime="2020-02-10T12:37:52+09:00">2020-02-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>hello</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -2251,7 +2286,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
