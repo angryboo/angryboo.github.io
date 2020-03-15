@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"angryboo.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="I can do this all day">
+  <meta name="description" content="빌트인 객체1. 자바스크립트 객체의 분류 표준 빌트인 객체 ECMAScript 사양에 정의 된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공함. 자바스크립트 실행환경과 관게없이 언제나 사용 가능 함 전역 객체의 프로퍼티 처럼 제공됨으로 별도의 선언 없이 전역변수처럼 언제나 참조 가능   호스트 객체 ECMAScript 사양에는 정의되어 있지는 않지만">
 <meta property="og:type" content="article">
 <meta property="og:title" content="빌트인 객체">
 <meta property="og:url" content="https://angryboo.github.io/2020/03/15/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-15%20%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4/index.html">
 <meta property="og:site_name" content="angryboo">
-<meta property="og:description" content="I can do this all day">
+<meta property="og:description" content="빌트인 객체1. 자바스크립트 객체의 분류 표준 빌트인 객체 ECMAScript 사양에 정의 된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공함. 자바스크립트 실행환경과 관게없이 언제나 사용 가능 함 전역 객체의 프로퍼티 처럼 제공됨으로 별도의 선언 없이 전역변수처럼 언제나 참조 가능   호스트 객체 ECMAScript 사양에는 정의되어 있지는 않지만">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2020-03-15T03:57:11.307Z">
-<meta property="article:modified_time" content="2020-03-15T03:57:29.433Z">
+<meta property="article:modified_time" content="2020-03-15T08:23:20.453Z">
 <meta property="article:author" content="angryboo">
 <meta property="article:tag" content="vs">
 <meta property="article:tag" content=" html">
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">작성일</span>
               
 
-              <time title="Post created: 2020-03-15 12:57:11 / Updated at: 12:57:29" itemprop="dateCreated datePublished" datetime="2020-03-15T12:57:11+09:00">2020-03-15</time>
+              <time title="Post created: 2020-03-15 12:57:11 / Updated at: 17:23:20" itemprop="dateCreated datePublished" datetime="2020-03-15T12:57:11+09:00">2020-03-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -201,7 +201,94 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="빌트인-객체"><a href="#빌트인-객체" class="headerlink" title="빌트인 객체"></a>빌트인 객체</h1><h2 id="1-자바스크립트-객체의-분류"><a href="#1-자바스크립트-객체의-분류" class="headerlink" title="1. 자바스크립트 객체의 분류"></a>1. 자바스크립트 객체의 분류</h2><ol>
+<li>표준 빌트인 객체<ul>
+<li>ECMAScript 사양에 정의 된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공함.</li>
+<li>자바스크립트 실행환경과 관게없이 언제나 사용 가능 함</li>
+<li>전역 객체의 프로퍼티 처럼 제공됨으로 별도의 선언 없이 전역변수처럼 언제나 참조 가능</li>
+</ul>
+</li>
+<li>호스트 객체<ul>
+<li>ECMAScript 사양에는 정의되어 있지는 않지만 자바스크립트 실행환경에서 추가적으로 제공함</li>
+</ul>
+</li>
+<li>사용자 정의 객체<ul>
+<li>사용자가 직접 정의한 객체를 의미함</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="2-표준-빌트인-객체"><a href="#2-표준-빌트인-객체" class="headerlink" title="2. 표준 빌트인 객체"></a>2. 표준 빌트인 객체</h2><ul>
+<li>자바스크립트는 Object, String, Number, Boolean, Symbol, Date, Mathm RegExp, Array, Map/Set 등 40여개의 표준 빌트인 객체를 제공함</li>
+<li>Math, Reflect, JSON을 제외한 표준 빌트인 객체는 모두 인스턴스를 생성할 수 있는 생성자 함수 객체이다.</li>
+<li>생성자 함수 객체는 표준 빌트인 객체는 프로토타입 메소드와 정적 메소드를 제공하고 생성자함수 객체가 아닌 표준 빌트인 객체는 정적 메소드만을 제공한다.</li>
+<li>생성자 함수인 표준 빌트인 객체가 생성한 인스턴스의 프로토타입은 표준 빌트인 객체의 prototype 프로퍼티에 바인딩 된 객체다.</li>
+<li>표준 빌트인 객체의 prototype 프로퍼티에 바인딩 된 객ㅊ체는 다양한 기능의 메소드를 제공한다.</li>
+<li>또한 인스턴스 없이도 호출 가능한 정적 메소드도 제공한다.</li>
+</ul>
+<hr>
+<h2 id="3-원시값과-래퍼객체"><a href="#3-원시값과-래퍼객체" class="headerlink" title="3. 원시값과 래퍼객체"></a>3. 원시값과 래퍼객체</h2><ul>
+<li>원시값인 문자열, 숫자, 불리언 값의 경우, 마치 객체처럼 이들 원시값에 마침표 표기법으로 접근하면 자바스크립트 엔진이 일시적으로 원시값을 연관된 객체로 변환해 줌</li>
+<li>문자열, 숫자, 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 래퍼 객체라고 함</li>
+</ul>
+<hr>
+<h2 id="4-전역객체"><a href="#4-전역객체" class="headerlink" title="4. 전역객체"></a>4. 전역객체</h2><ul>
+<li><p>전역 객체는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체</p>
+</li>
+<li><p>어떤 객체에도 속하지 않은 최상위 객체</p>
+</li>
+<li><p>환경에 따라 브라우저에서는 window, node.js 에서는 global이 전역 객체를 가르킴</p>
+</li>
+<li><p>전역 객체는 표준 빌트인 객체와 환경에 따른 호스트객체, 그리고 var키워드로 선언한 전역 변수와 전역함수를 프로퍼티로 갖는다.</p>
+</li>
+<li><p>전역 객체의 특징</p>
+<ul>
+<li>전역 객체는 개발자가 의도적으로 생성할 수 없음.(전역 객체 생성자 함수도 없음)</li>
+<li>전역 객체를 참조할 때 window를 생략할 수 있다.</li>
+<li>전역 객체는 모든 표준 빌트인 객체를 프로퍼티로 가지고 있다.</li>
+<li>자바스크립트 실행 환경에 따라 추가적인 프로퍼티와 메소드를 갖는다.</li>
+<li>var 키워드로 선언한 전역변수와 선언하지 않은 변수에 값을 할당한 암묵적 전역, 그리고 전역 함수는 전역 객체의 프로퍼티가 된다.</li>
+<li>let, const로 선언한 전역변수는 전역 객체의 프로퍼티가 아니다.</li>
+<li>브라우저 환경의 모든 자바스크립트 코드는 하나의 전역객체 window를 공유한다. (파일이 분리되어 있어도 하나의 전역객체를 공유)</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-빌트인-전역-프로퍼티"><a href="#4-1-빌트인-전역-프로퍼티" class="headerlink" title="4-1 빌트인 전역 프로퍼티"></a>4-1 빌트인 전역 프로퍼티</h3><ul>
+<li>빌트인 전역 프로퍼티는 전역객체의 프로퍼티를 의미한다.</li>
+<li>주로 애플리케이션 전역에서 사용하는 값을 의미한다.</li>
+</ul>
+<ol>
+<li>Infinity : Infinity 프로퍼티는 양/음의 무한대를 나타내는 숫자값 Infinity를 갖는다.</li>
+<li>NaN : 숫자가 아님을 나타내는 숫자값 NaN을 갖는다.</li>
+<li>undefined : undefined 프로퍼티는 원시타입 undefined를 값으로 갖는다.</li>
+</ol>
+<h3 id="4-2-빌트인-전역함수"><a href="#4-2-빌트인-전역함수" class="headerlink" title="4-2 빌트인 전역함수"></a>4-2 빌트인 전역함수</h3><ul>
+<li>빌트인 전력함수는 애플리케이션 전역에서 호출할 수 있는 전역객체의 메소드임</li>
+</ul>
+<ol>
+<li>eval : 문자열 형태로 매개변수에 전달된 코드를 헌타임에 동적으로 평가하고 실행하여 결과값을 반환</li>
+<li>isFinite : 매개변수에 전달된 값이 정상적인 유한수인지 검사하여 불리언 타입으로 반환.</li>
+<li>isNaN : 매개변수에 전달된 값이 NaN 인지 검사하여 그 결과를 불리언 타입으로 반환</li>
+<li>parseFloat : 매개변수에 전달된 문자열을 부동소수점 숫자로 변환하여 반환(공백이 있으면 첫번째 문자열만 반환</li>
+<li>parselnt : 매개변수에 전달된 문자열을 정수형 숫자로 해석해서 반환(반환은 언제나 10진수임)</li>
+<li>encodeURI : / decodeURI<ul>
+<li>encodeURI는 매개변수로 전달 된 URI를 인코딩한다.</li>
+<li>인코딩 이란 URI 문자들을 이스케이프 처리 하는것</li>
+<li>이스케이프 처리는 문자를 아스키 문자 set으로 변환하는것</li>
+<li>decodeURI는 인코딩 된 문자를 매개변수로 받아 인코딩 이전으로 디코딩 한다.</li>
+</ul>
+</li>
+<li>encodeURIComponent / decodeURIComponent<ul>
+<li>encodeURIComponent는 매개변수로 전달 된 URI 구성요소를 인코딩 한다.</li>
+<li>쿼리 파라미터의 구분자도 인코딩 한다</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-3-암묵적-전역"><a href="#4-3-암묵적-전역" class="headerlink" title="4-3 암묵적 전역"></a>4-3 암묵적 전역</h3><ul>
+<li>선언되지 않은 식별자(변수)에 값을 할당하면 자바스크립트 엔진이 암묵적으로 전역 객체의 프로퍼티를 동적 생성하여 값을 할당함</li>
+<li>전역 객체의 프로퍼티로 등록 되었을 뿐 변수는 아님</li>
+</ul>
+
     </div>
 
     
@@ -279,6 +366,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#빌트인-객체"><span class="nav-number">1.</span> <span class="nav-text">빌트인 객체</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-자바스크립트-객체의-분류"><span class="nav-number">1.1.</span> <span class="nav-text">1. 자바스크립트 객체의 분류</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-표준-빌트인-객체"><span class="nav-number">1.2.</span> <span class="nav-text">2. 표준 빌트인 객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-원시값과-래퍼객체"><span class="nav-number">1.3.</span> <span class="nav-text">3. 원시값과 래퍼객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-전역객체"><span class="nav-number">1.4.</span> <span class="nav-text">4. 전역객체</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-빌트인-전역-프로퍼티"><span class="nav-number">1.4.1.</span> <span class="nav-text">4-1 빌트인 전역 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-빌트인-전역함수"><span class="nav-number">1.4.2.</span> <span class="nav-text">4-2 빌트인 전역함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-암묵적-전역"><span class="nav-number">1.4.3.</span> <span class="nav-text">4-3 암묵적 전역</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
