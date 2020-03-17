@@ -150,6 +150,66 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/17/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/17/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C2/" class="post-title-link" itemprop="url">문제 풀이/알고리즘 연습문제2</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-03-17 21:24:37 / Updated at: 21:25:21" itemprop="dateCreated datePublished" datetime="2020-03-17T21:24:37+09:00">2020-03-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="선택정렬"><a href="#선택정렬" class="headerlink" title="선택정렬"></a>선택정렬</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> tempValue = [array[i], <span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span> + i; j &lt; array.length; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (array[j] &lt;= tempValue[<span class="number">0</span>]) tempValue = [array[j], j];</span><br><span class="line">    &#125;</span><br><span class="line">    array[tempValue[<span class="number">1</span>]] = array[i];</span><br><span class="line">    array[i] = tempValue[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(selectionSort([<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">4</span>, <span class="number">2</span>]));</span><br><span class="line"><span class="built_in">console</span>.log(selectionSort([<span class="number">15</span>, <span class="number">-6</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>]));</span><br><span class="line"><span class="built_in">console</span>.log(selectionSort([<span class="number">50</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">-30</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>]));</span><br><span class="line"><span class="built_in">console</span>.log(selectionSort([<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>]));</span><br></pre></td></tr></table></figure>
+
+<h2 id="삽입정렬"><a href="#삽입정렬" class="headerlink" title="삽입정렬"></a>삽입정렬</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> tempValue = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span> + i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (array[j] &lt; array[j - <span class="number">1</span>]) &#123;</span><br><span class="line">        tempValue = array[j];</span><br><span class="line">        array[j] = array[j - <span class="number">1</span>];</span><br><span class="line">        array[j - <span class="number">1</span>] = tempValue;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(insertionSort([<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">4</span>, <span class="number">2</span>]));</span><br><span class="line"><span class="built_in">console</span>.log(insertionSort([<span class="number">-20</span>, <span class="number">-30</span>, <span class="number">5</span>, <span class="number">-1</span>, <span class="number">7</span>, <span class="number">-70</span>]));</span><br><span class="line"><span class="built_in">console</span>.log(insertionSort([<span class="number">9</span>, <span class="number">99</span>, <span class="number">55</span>, <span class="number">-1</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="number">66</span>, <span class="number">-40</span>]));</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/16/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-16%20%EC%8B%A4%ED%96%89%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1787,140 +1847,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/02/29/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%A0%9C%EC%96%B4%EB%AC%B8%20%EC%97%B0%EC%8A%B5%20%EB%AC%B8%EC%A0%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="angryboo">
-      <meta itemprop="description" content="I can do this all day">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="angryboo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/29/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%A0%9C%EC%96%B4%EB%AC%B8%20%EC%97%B0%EC%8A%B5%20%EB%AC%B8%EC%A0%9C/" class="post-title-link" itemprop="url">제어문 연습문제</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-
-              <time title="Post created: 2020-02-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-29T00:00:00+09:00">2020-02-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-01 00:00:00" itemprop="dateModified" datetime="2020-03-01T00:00:00+09:00">2020-03-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/" itemprop="url" rel="index">
-                    <span itemprop="name">문제풀이</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="제어문-연습-문제"><a href="#제어문-연습-문제" class="headerlink" title="제어문 연습 문제"></a>제어문 연습 문제</h1><ol>
-<li><p>변수 X가 10보다 크고 20보다 작을 때 변수 X를 출력하는 조건식을 완성하라.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">15</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x &gt; <span class="number">10</span> &amp;&amp; x &lt; <span class="number">20</span>) <span class="built_in">console</span>.log(x);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>for 문을 사용하여 0부터 10미만 정수 중에서 짝수만을 작은 수부터 출력하시오</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">2</span> === <span class="number">0</span>) <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>for문을 사용하여 0부터 10 미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">2</span> === <span class="number">0</span>) str += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>for 문을 사용하여 0부터 10 미만의 정수 중에서 홀수만을 큰 수부터 출력하시오</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">10</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">2</span>) <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>while문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">10</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">2</span> === <span class="number">0</span>) <span class="built_in">console</span>.log(i);</span><br><span class="line">  i += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>while문을 사용하여 0부터 10 미만의 정수 중에서 홀수만을 큰 수부터 출력하시오</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">2</span>) <span class="built_in">console</span>.log(i);</span><br><span class="line">  i -= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>for 문을 사용하여 0부터 10미만의 정수의 합을 출력하시오</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  sum += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>1부터 20미만의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오. </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> ((i % <span class="number">2</span>) &amp;&amp; (i % <span class="number">3</span>)) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>1부터 20 미만의 정수 중에서 2또는 3의 배수인 수의 총합을 구하시오.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!(i % <span class="number">2</span>) || !(i % <span class="number">3</span>)) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>두개의 주사위를 전졌을 떄, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dice = [<span class="number">0</span>, <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> fst = <span class="number">1</span>; fst &lt; <span class="number">7</span>; fst++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> scd = <span class="number">1</span>; scd &lt; <span class="number">7</span>; scd++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (fst + scd === <span class="number">6</span>) <span class="built_in">console</span>.log(dice = [fst, scd]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>삼각형 출력하기 - pattern 1 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> vtl = <span class="number">0</span>; vtl &lt; <span class="number">5</span>; vtl++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> hzt = <span class="number">0</span>; hzt &lt;= vtl; hzt++) &#123;</span><br><span class="line">    tree += <span class="string">'*'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  tree += <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(tree);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>삼각형 출력하기 - pattern 2</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> vtl = <span class="number">0</span>; vtl &lt; <span class="number">5</span>; vtl++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> hzt = <span class="number">0</span>; hzt &lt; <span class="number">5</span>; hzt++) &#123;</span><br><span class="line">    tree += vtl &gt; hzt ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  tree += <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(tree);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>삼각형 출력하기 - pattern 3</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> vtl = <span class="number">5</span>; vtl &gt; <span class="number">0</span>; vtl--) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> hzt = <span class="number">0</span>; hzt &lt; vtl; hzt++) &#123;</span><br><span class="line">    tree += <span class="string">'*'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  tree += <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(tree);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>삼각형 출력하기 - pattern 4</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> vtl = <span class="number">0</span>; vtl &lt; <span class="number">5</span>; vtl++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> hzt = <span class="number">0</span>; hzt &lt; <span class="number">5</span>; hzt++) &#123;</span><br><span class="line">    tree += (vtl + hzt &gt; <span class="number">3</span>) ? <span class="string">'*'</span> : <span class="string">' '</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  tree += <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(tree);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>정삼각형 출력하기</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> vtl = <span class="number">0</span>; vtl &lt; <span class="number">5</span>; vtl++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> hzt = <span class="number">0</span>; hzt &lt; <span class="number">9</span>; hzt++) &#123;</span><br><span class="line">    tree += ((hzt &gt; (<span class="number">4</span> + vtl)) || (hzt &lt; (<span class="number">4</span> - vtl))) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  tree += <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(tree);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>역정삼각형 출력하기</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tree = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> vtl = <span class="number">0</span>; vtl &lt; <span class="number">5</span>; vtl++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> hzt = <span class="number">0</span>; hzt &lt; <span class="number">9</span>; hzt++) &#123;</span><br><span class="line">    tree += ((hzt &lt; (<span class="number">0</span> + vtl)) || (hzt &gt; (<span class="number">8</span> - vtl))) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  tree += <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(tree);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<h4 id="3-1-추가"><a href="#3-1-추가" class="headerlink" title="3/1 추가"></a>3/1 추가</h4><ul>
-<li><p>콜백함수 응용 정삼각형, 정역삼각형 logic 동시 구현</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tree</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> vtl = <span class="number">0</span>; vtl &lt; <span class="number">5</span>; vtl++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> hzt = <span class="number">0</span>; hzt &lt; <span class="number">9</span>; hzt++) &#123;</span><br><span class="line">      f(vtl, hzt);</span><br><span class="line">    &#125;</span><br><span class="line">    sum += <span class="string">'\n'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">console</span>.log(sum);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fw</span>(<span class="params">v, h</span>) </span>&#123;</span><br><span class="line">  sum += ((h &gt; (<span class="number">4</span> + v)) || (h &lt; (<span class="number">4</span> - v))) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bw</span>(<span class="params">v, h</span>) </span>&#123;</span><br><span class="line">  sum += ((h &lt; (<span class="number">0</span> + v)) || (h &gt; (<span class="number">8</span> - v))) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tree(fw);</span><br><span class="line"><span class="comment">// 인수로 fw 입력 시 정삼각형, 인수로 bw 입력 시 정역삼각형 반환</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>콜백함수 응용 삼각형찍기 pattern1 ~ 4끼지 동시 구현</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tree</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> vtl = <span class="number">0</span>; vtl &lt; <span class="number">5</span>; vtl++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> hzt = <span class="number">0</span>; hzt &lt; <span class="number">5</span>; hzt++) &#123;</span><br><span class="line">      f(vtl, hzt);</span><br><span class="line">    &#125;</span><br><span class="line">    sum += <span class="string">'\n'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">console</span>.log(sum);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ptn1</span>(<span class="params">v, h</span>) </span>&#123;</span><br><span class="line">  sum += (v &lt; h) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ptn2</span>(<span class="params">v, h</span>) </span>&#123;</span><br><span class="line">  sum += (v &gt; h) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ptn3</span>(<span class="params">v, h</span>) </span>&#123;</span><br><span class="line">  sum += (v + h &gt;= <span class="number">5</span>) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ptn4</span>(<span class="params">v, h</span>) </span>&#123;</span><br><span class="line">  sum += (v + h &lt; <span class="number">4</span>) ? <span class="string">' '</span> : <span class="string">'*'</span>;</span><br><span class="line">&#125;</span><br><span class="line">tree(ptn1);</span><br><span class="line"><span class="comment">// 인수로 ptn1 ~ ptn4 입력 시 삼각형은 패턴에 맞게 출력됨</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1991,7 +1917,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
