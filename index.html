@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">작성일</span>
               
 
-              <time title="Post created: 2020-03-18 09:45:06 / Updated at: 09:51:51" itemprop="dateCreated datePublished" datetime="2020-03-18T09:45:06+09:00">2020-03-18</time>
+              <time title="Post created: 2020-03-18 09:45:06 / Updated at: 10:01:31" itemprop="dateCreated datePublished" datetime="2020-03-18T09:45:06+09:00">2020-03-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,7 +200,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="클로저"><a href="#클로저" class="headerlink" title="클로저"></a>클로저</h1><p>-</p>
+          <h1 id="클로저"><a href="#클로저" class="headerlink" title="클로저"></a>클로저</h1><p>- </p>
 
       
     </div>
@@ -322,7 +322,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-18 09:55:55" itemprop="dateModified" datetime="2020-03-18T09:55:55+09:00">2020-03-18</time>
+                <time title="Updated at: 2020-03-18 10:01:31" itemprop="dateModified" datetime="2020-03-18T10:01:31+09:00">2020-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -473,7 +473,7 @@
 </ul>
 <p>–  </p>
 <h2 id="7-실행-컨텍스트의-생성과-식별자-검색-과정"><a href="#7-실행-컨텍스트의-생성과-식별자-검색-과정" class="headerlink" title="7. 실행 컨텍스트의 생성과 식별자 검색 과정"></a>7. 실행 컨텍스트의 생성과 식별자 검색 과정</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">const</span> y = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> z = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b + x + y + z);</span><br><span class="line">  &#125;</span><br><span class="line">  bar(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="../image/111.jpeg" alt="예제 코드 실행 과정"><br>위 코드는 다음과 같은 순으로 실행 됨</p>
+<p><img src="https://raw.githubusercontent.com/angryboo/angryboo.github.io/master/image/111.jpeg" alt="예제 코드 실행 과정"><br>위 코드는 다음과 같은 순으로 실행 됨</p>
 <p>전역 코드 평가 &gt; 전역 코드 실행 &gt; foo 함수 코드 평가 &gt; foo 함수 코드 실행 &gt; bar 함수 코드 평가 &gt; bar 함수 코드 실행 &gt; bar 함수 실행 종료 &gt; foo 함수 실행 종료 &gt; 전역 코드 실행 종료</p>
 
       
