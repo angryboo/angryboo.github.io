@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">작성일</span>
               
 
-              <time title="Post created: 2020-03-18 16:52:45 / Updated at: 17:47:06" itemprop="dateCreated datePublished" datetime="2020-03-18T16:52:45+09:00">2020-03-18</time>
+              <time title="Post created: 2020-03-18 16:52:45 / Updated at: 21:38:00" itemprop="dateCreated datePublished" datetime="2020-03-18T16:52:45+09:00">2020-03-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +275,114 @@
 </li>
 <li><p>constructor는 생략할 수 있으며 생략하면 디폴트 constructor가 암묵적으로 정의되며 빈객체 생성</p>
 </li>
-<li></li>
+<li><p>constructor는 별도 반환문을 갖지 않아야 한다.(생성자 함수와 동일)</p>
+</li>
+</ul>
+<h3 id="5-2-프로토타입-메소드"><a href="#5-2-프로토타입-메소드" class="headerlink" title="5-2 프로토타입 메소드"></a>5-2 프로토타입 메소드</h3><ul>
+<li>클래스 몸체에서 정의한 메소드는 명시적으로 prototype 프로퍼티에 메소드를 토가하지 않아도 기본적으로 프로토타입 메소드가 됨</li>
+</ul>
+<h3 id="5-3-정적-메소드"><a href="#5-3-정적-메소드" class="headerlink" title="5-3 정적 메소드"></a>5-3 정적 메소드</h3><ul>
+<li>클래스 몸체에서 정의한 메소드에 static 키워드를 붙이면 정적 메소드(클래스 메소드) 가 된다.</li>
+</ul>
+<h3 id="5-4-정적-메소드와-프로토타입-메소드의-차이"><a href="#5-4-정적-메소드와-프로토타입-메소드의-차이" class="headerlink" title="5-4 정적 메소드와 프로토타입 메소드의 차이"></a>5-4 정적 메소드와 프로토타입 메소드의 차이</h3><ol>
+<li>정적 메소드와 프로토타입 메소드가 속해 있는 프로토타입 체인이 다름</li>
+<li>정적 메소드는 클래스로 호출하고 프로토타입 메소드는 인스턴스로 호출함</li>
+<li>정적 메소드는 인스턴스 프로퍼티를 참조할 수 없지만 프로토타입 메소드는 인스턴스 프로퍼티를 참조할 수 있음</li>
+</ol>
+<h3 id="5-5-클래스에서-정의한-메소드의-특징"><a href="#5-5-클래스에서-정의한-메소드의-특징" class="headerlink" title="5-5 클래스에서 정의한 메소드의 특징"></a>5-5 클래스에서 정의한 메소드의 특징</h3><ol>
+<li>function 키워드를 생략한 메소드 축약표현을 사용한다.</li>
+<li>객체 리터럴과는 다르게 클래스에 메소드를 정의할 때는 콤마가 필요 없다.</li>
+<li>암묵적으로 strict 모드로 실행된다</li>
+<li>for…in 문이나 Object.keys 메소드 등으로 열거할 수 없다.</li>
+<li>내부메소드 [[Construct]]를 갖지 않는 non-constructor이다. 따라서 new연산자와 호출될 수 없다.</li>
+</ol>
+<hr>
+<h2 id="6-클래스의-인스턴스-생성과정"><a href="#6-클래스의-인스턴스-생성과정" class="headerlink" title="6. 클래스의 인스턴스 생성과정"></a>6. 클래스의 인스턴스 생성과정</h2><ol>
+<li><p>인스턴스 생성과 this 바인딩</p>
+<ul>
+<li>new연산자와 함께 클래스 호출</li>
+<li>constructor의 내부코드 실행</li>
+<li>암묵적 빈객체(인스턴스) 생성</li>
+<li>this에 인스턴스가 바인딩</li>
+</ul>
+</li>
+<li><p>인스턴스 초기화</p>
+<ul>
+<li>constructor의 내부 코드가 실행되어 this에 바인딩 되어 있는 인스턴스를 초기화</li>
+<li>this에 바인딩 되어있는 인스턴스에 프로퍼티 추가</li>
+<li>인수로 전달받은 호기값으로 인스턴스의 프로퍼티 값 초기화</li>
+</ul>
+</li>
+<li><p>프로토타입 / 정적 메소드 추가</p>
+<ul>
+<li>메소드가 존재하면 메소드 추가</li>
+</ul>
+</li>
+<li><p>인스턴스 반환</p>
+<ul>
+<li>this가 암묵적으로 반환됨(this에는 인스턴스가 바인딩 되어 있음)    </li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="7-프로퍼티"><a href="#7-프로퍼티" class="headerlink" title="7. 프로퍼티"></a>7. 프로퍼티</h2><h3 id="7-1-인스턴스-프로퍼티"><a href="#7-1-인스턴스-프로퍼티" class="headerlink" title="7-1 인스턴스 프로퍼티"></a>7-1 인스턴스 프로퍼티</h3><ul>
+<li><p>인스턴스 프로퍼티는 constructor 내부에서 정의 해야 함</p>
+</li>
+<li><p>constructor 내부에서 this에 추가한 프로퍼티는 언제나 클래스가 생성한 인스턴스의 프로퍼티가 된다</p>
+</li>
+<li><p>인스턴스 프로퍼티는 언제나 public하다</p>
+<h3 id="7-2-접근자-프로퍼티"><a href="#7-2-접근자-프로퍼티" class="headerlink" title="7-2 접근자 프로퍼티"></a>7-2 접근자 프로퍼티</h3></li>
+<li><p>자체적으로는 값을 갖지 않고 다른 데이터 프로퍼티의 값을 읽거나 저장할 때 사용하는 접근자 함수로 구성</p>
+</li>
+<li><p>클래스의 메소드는 기본적으로 프로토타입 메소드가 되므로 접근자 프로퍼티는 프로토타입 프로퍼티가 된다.</p>
+</li>
+</ul>
+<h3 id="7-3-클래서-필드-정의-제한"><a href="#7-3-클래서-필드-정의-제한" class="headerlink" title="7-3 클래서 필드 정의 제한"></a>7-3 클래서 필드 정의 제한</h3><ul>
+<li>클래스 몸체에스 클래스 필드를 정의할 수 있는 클래스 필드 정의 제안은 아직 정식 표준 사양이 아님</li>
+<li>클래스 몸체에서 클래스 필드를 정의하는 경우 this에 클래스 필드를 바인딩 해서는 안됨(this는 클래스의 constructor 내에서만 유효함) </li>
+<li>외부의 초기값으로 클래스 필드를 초기화 해야 할 필요가 있다면 constructor에서 클래스 필드를 초기화 해야한다.</li>
+<li>클래스 필드를 참조하는 경우 자바스크립트 에서는 this를 반드시 사용해야 한다.</li>
+<li>클래스 필드에 초기값을 할당하지 않으면 undefined를 갖는다.</li>
+</ul>
+<h3 id="7-4-private-필드-정의-제안"><a href="#7-4-private-필드-정의-제안" class="headerlink" title="7-4 private 필드 정의 제안"></a>7-4 private 필드 정의 제안</h3><ul>
+<li>private 필드 선두에 #를 붙여줌</li>
+<li>provate 필드는 클래스 필드 내에서만 참조할 수 있다.</li>
+<li>private 필드는 반드시 클래스 몸체에 정의해야한다.</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">// private 필드 정의</span></span><br><span class="line">  #name = '';</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="comment">// private 필드 참조</span></span><br><span class="line">    this.#name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">'Song'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// private 필드 #name은 클래스 외부에서 참조할 수 없다.</span></span><br><span class="line">console.log(me.#name);</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-5-static-필드-정의-제안"><a href="#7-5-static-필드-정의-제안" class="headerlink" title="7-5 static 필드 정의 제안"></a>7-5 static 필드 정의 제안</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyMath</span> </span>&#123;</span><br><span class="line">  <span class="comment">// static public 필드 정의</span></span><br><span class="line">  <span class="keyword">static</span> PI = <span class="number">22</span> / <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// static private 필드 정의</span></span><br><span class="line">  static #num = 10;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// static 메소드</span></span><br><span class="line">  <span class="keyword">static</span> increment() &#123;</span><br><span class="line">    return ++MyMath.#num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(MyMath.PI); <span class="comment">// 3.14285714</span></span><br><span class="line"><span class="built_in">console</span>.log(MyMath.increment()); <span class="comment">// 11</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-상속에-의한-클래스-확장"><a href="#8-상속에-의한-클래스-확장" class="headerlink" title="8. 상속에 의한 클래스 확장"></a>8. 상속에 의한 클래스 확장</h2><h3 id="8-1-클래스-상속과-생성자-함수-상속"><a href="#8-1-클래스-상속과-생성자-함수-상속" class="headerlink" title="8-1 클래스 상속과 생성자 함수 상속"></a>8-1 클래스 상속과 생성자 함수 상속</h3><ul>
+<li>프로로타입 기반 상속 : 프로토타입 체인에 의해 객체의 리소스 상속</li>
+<li>상속에 의한 클래스 확장 : 기존의 클래스를 상속받아 새로운 클래스 정의</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(age, weight) &#123;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.weight = weight;</span><br><span class="line">  &#125;</span><br><span class="line">  eat() &#123; <span class="keyword">return</span> <span class="string">'eat'</span> &#125;;</span><br><span class="line">  move() &#123; <span class="keyword">return</span> <span class="string">'move'</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 클래스 상속</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  fly() &#123; <span class="keyword">return</span> <span class="string">'fly'</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bird = <span class="keyword">new</span> Bird(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bird); <span class="comment">//Bird &#123;age: 1, weight: 5&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-2-extends-키워드"><a href="#8-2-extends-키워드" class="headerlink" title="8-2 extends 키워드"></a>8-2 extends 키워드</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 수퍼 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 서브 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>상속을 통해 클래스를 확장하려면 extends 키워드를 사용하여 상속받을 클래스를 정의한다.</li>
+<li>extends 키워드의 역할은 수퍼 클래스와 서브 클래스 간의 상속관계를 성정하는 것임</li>
+<li>클래스도 프로토 타입을 통해 상속 관계를 구현함</li>
+<li>수퍼클래스와 서브 클래스는 인스턴스의 프로토타입 체인 뿐만 아니라 클래스 간의 프로토타입 테인도 생성함(프로토타입 메소드, 정적 메소드 모두 상속 가능)</li>
+</ul>
+<h3 id="8-3-동적-상속"><a href="#8-3-동적-상속" class="headerlink" title="8-3 동적 상속"></a>8-3 동적 상속</h3><ul>
+<li>extends 키워드는 생성자 함수를 상속받아 클래스를 확장할 수도 있다. 단 estends 키워드 앞에는 반드시 클래스가 와야한다.</li>
+<li>extends 키워드 다음에는 클래스 뿐만 아니라 [[Constructor]] 내부 메소드를 샂는 함수 객체를 반환하는 모든 표현식을 사용할 수 있다(동적으로 상속받을 대상 결정 가능)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Base1</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> condition = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 조건에 따라 동적으로 상속 대상을 결정하는 서브 클래스</span></span><br><span class="line">class Derived extends (condition ? Base1 : Base2) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> derived = <span class="keyword">new</span> Derived();</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-4-서브-클래스의-constructor"><a href="#8-4-서브-클래스의-constructor" class="headerlink" title="8-4 서브 클래스의 constructor"></a>8-4 서브 클래스의 constructor</h3><ul>
+<li>서브 클래스에 constructor를 생략하면 클래스에 아래와 같이 디폴트 constructor가 정의된다<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;&#125; <span class="comment">// 암묵적 정의</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123; <span class="keyword">super</span>(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>위 예제와 같이 수퍼클래스와 서브클래스 모두 constructor를 생략하면 빈 객체가 생성된다.</li>
+</ul>
+<h3 id="8-5-super-키워드"><a href="#8-5-super-키워드" class="headerlink" title="8-5 super 키워드"></a>8-5 super 키워드</h3><ul>
+<li>super 키워드는 함수처럼 호출할 수도 있고 this와 같이 식별자처럼 참조할 수 있는 특수한 키워드이다.<ul>
+<li>super를 호출하면 수퍼클래스의 constructor(super-constructor)를 호출한다.</li>
+<li>super를 참조하면 수퍼클래스의 메소드를 호출할수 있다</li>
+</ul>
+</li>
 </ul>
 
       
@@ -321,7 +428,7 @@
               <span class="post-meta-item-text">작성일</span>
               
 
-              <time title="Post created: 2020-03-18 15:56:08 / Updated at: 17:31:03" itemprop="dateCreated datePublished" datetime="2020-03-18T15:56:08+09:00">2020-03-18</time>
+              <time title="Post created: 2020-03-18 15:56:08 / Updated at: 19:51:22" itemprop="dateCreated datePublished" datetime="2020-03-18T15:56:08+09:00">2020-03-18</time>
             </span>
 
           
@@ -336,22 +443,8 @@
 
       
           class Person {
-  constructor(name) {
-    this.name = name;
-  }
-  sayHi() {
-    console.log(`Hi! My Name is ${this.name}`);
-  }
-  static sayHello() {
-    console.log('Hello!');
-  }
+  name = 'Song';
 }
-
-const me = new Person('Song');
-
-console.log(me.name); // Song
-me.sayHi(); // Hi! my name is Song
-Person.sayHello(); // Hello!
       
     </div>
 
