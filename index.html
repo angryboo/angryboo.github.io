@@ -150,6 +150,212 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/19/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-19%20ES6%20%ED%95%A8%EC%88%98%EC%9D%98%20%EC%B6%94%EA%B0%80%20%EA%B8%B0%EB%8A%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/19/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-19%20ES6%20%ED%95%A8%EC%88%98%EC%9D%98%20%EC%B6%94%EA%B0%80%20%EA%B8%B0%EB%8A%A5/" class="post-title-link" itemprop="url">ES6 함수의 추가 기능</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-03-19 18:48:18 / Updated at: 21:52:32" itemprop="dateCreated datePublished" datetime="2020-03-19T18:48:18+09:00">2020-03-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">예습</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ES6-함수의-추가-기능"><a href="#ES6-함수의-추가-기능" class="headerlink" title="ES6 함수의 추가 기능"></a>ES6 함수의 추가 기능</h1><h2 id="1-함수의-구분"><a href="#1-함수의-구분" class="headerlink" title="1. 함수의 구분"></a>1. 함수의 구분</h2><ul>
+<li>ES5 까지 모든 함수는 사용 목적에 따라 명확한 구분이 없으므로 호출 방식에 특별한 제약이 없고 생성자 함수로 호출되지 않아도 프로토타입 객체를 생성한다.</li>
+<li>이러한 문제를 해결하기 위해 ES6에서는 사용 목적에 따라 함수를 3가지 종류로 명확히 구분하였다.<table>
+<thead>
+<tr>
+<th>ES6 함수의 구분</th>
+<th>constructor</th>
+<th>prototype</th>
+<th>super</th>
+<th>arguments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>일반함수</td>
+<td>O</td>
+<td>O</td>
+<td>X</td>
+<td>O</td>
+</tr>
+<tr>
+<td>메소드</td>
+<td>X</td>
+<td>X</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>화살표함수</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<hr>
+<h2 id="2-메소드"><a href="#2-메소드" class="headerlink" title="2. 메소드"></a>2. 메소드</h2><ul>
+<li><p>ES6 사양에서 메소드는 메소드 축약표현으로 정의된 함수 만을 의미한다.</p>
+</li>
+<li><p>ES6 사양에서 메소드는 인스턴스를 생성할 수 없는 non-constructor이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  x: <span class="number">1</span>,</span><br><span class="line">  foo() &#123; <span class="keyword">return</span> <span class="keyword">this</span>.x; &#125;, <span class="comment">// ES6 메소드</span></span><br><span class="line">  bar: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.x; &#125; <span class="comment">// 일반함수</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.foo()); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.bar()); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> obj.foo(); <span class="comment">// TypeError: obj.foo is not a constructor</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="keyword">new</span> obj.bar(); <span class="comment">// bar &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.prototype.hasOwnProperty.call(obj.foo, <span class="string">'prototype'</span>); <span class="comment">// falas</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.hasOwnProperty.call(obj.bar, <span class="string">'prototype'</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6 메소드는 메소드가 바인딩 된 객체를 가리키는 내부슬롯 [[HomeObject]]를 갖는다.</p>
+</li>
+<li><p>[[HomeObject]]를 사용하여 수퍼클래스의 메소드를 참조 함으로 내부슬롯 [[HomeObject]]를 갖는 ES6 메소드만이 super키워드를 사용할 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> base = &#123;</span><br><span class="line">  name: <span class="string">'Song'</span>,</span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`Hi <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> derived = &#123;</span><br><span class="line">  __proto__: base,</span><br><span class="line">  <span class="comment">// ES6 메소드, [[HomeObject]]를 갖음</span></span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">super</span>.sayHi()&#125;</span>. how are yoe doing?`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(derived.sayHi()); <span class="comment">// Hi Song. how are yoe doing?</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-화살표-함수"><a href="#3-화살표-함수" class="headerlink" title="3. 화살표 함수"></a>3. 화살표 함수</h2><ul>
+<li>화살표 함수는 function 키워드 대신 화살표(=&gt;, fat arrow)를 사용하여 보다 기존의 함수 정의 방식보다 간략하게 함수를 정의할 수 있음</li>
+<li>표현만 간단한 것이 아닌 내부 동작도 시존 함수보다 간단함</li>
+<li>화살표 함수는 콜백함수 내부에서 this가 전역객체를 가리키는 문제를 해결하기 위한 대안으로 유용함</li>
+</ul>
+<h3 id="3-1-화살표-함수-정의"><a href="#3-1-화살표-함수-정의" class="headerlink" title="3-1 화살표 함수 정의"></a>3-1 화살표 함수 정의</h3><ol>
+<li><p>매개변수 선언</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(x, y) =&gt; &#123; ... &#125; <span class="comment">// 매개변수가 여러개인 경우, 소괄호 () 안에 매개변수를 선언한다.</span></span><br><span class="line"></span><br><span class="line">x =&gt; &#123; ... &#125; <span class="comment">// 매개변수가 한개인 경우, 소괄호 ()를 생략할 수 있다</span></span><br><span class="line"></span><br><span class="line">() =&gt; &#123; ... &#125; <span class="comment">// 매개변수가 없는 경우, 소괄호 ()를 생략할 수 없다</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>함수 몸체 정의</p>
+</li>
+</ol>
+<ul>
+<li><p>함수 몸체가 한 줄의 문으로 구성된다면 함수 몸체를 감싸는 중괄호 {}를 생략할 수 있다. 이는 암묵적으로 반환된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">x =&gt; x * x;</span><br><span class="line"><span class="comment">// 위 표현과 동일함</span></span><br><span class="line">x =&gt; &#123; <span class="keyword">return</span> x * x; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 매개변수가 없는 화살표 함수</span></span><br><span class="line"><span class="keyword">const</span> now = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Date</span>.now();</span><br><span class="line">now();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 표현식</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Date</span>.now();</span><br><span class="line">&#125;</span><br><span class="line">now();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 매개변수가 한개인 화살표 함수</span></span><br><span class="line"><span class="keyword">const</span> identity = <span class="function"><span class="params">value</span> =&gt;</span> value;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 표현식</span></span><br><span class="line"><span class="keyword">var</span> identity = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 매개변수가 여러개인 화살표 함수</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 표현식</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>함수 몸테가 여러줄의 문으로 구성된다면 함수 몸체를 감싸는 {}를 생략할 수 없다.</p>
+</li>
+<li><p>이때 반환값이 있다면 멱시적으로 반환해야한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 화살표 함수</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> result = a + b;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 표현식</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> result = a + b;</span><br><span class="line">  <span class="keyword">return</span> resule;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>객체 리터럴을 반환하는 경우, 객체 리터럴을 소괄호 ()로 감싸주어야 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">() =&gt; &#123; <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;; &#125;</span><br><span class="line"><span class="comment">// 위 표현과 동일하다.</span></span><br><span class="line">() =&gt; (&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 화살표함수</span></span><br><span class="line"><span class="keyword">const</span> create = <span class="function">(<span class="params">id, content</span>) =&gt;</span> (&#123; id, constent &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 표현식</span></span><br><span class="line"><span class="keyword">var</span> create = <span class="function"><span class="keyword">function</span> (<span class="params">id, content</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; id, content &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">create(<span class="number">1</span>, <span class="string">'javascript'</span>) <span class="comment">// &#123; id: 1, content: javascript &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>화살표 함수도 즉시실행 함수로 사용할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = (<span class="function"><span class="params">name</span> =&gt;</span> (&#123;</span><br><span class="line">  sayHi() &#123; <span class="keyword">return</span> <span class="string">`Hi My name is <span class="subst">$&#123;name&#125;</span>`</span>;&#125;</span><br><span class="line">&#125;))(<span class="string">'Song'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.sayHi()); <span class="comment">// Hi My name is Song</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>화살표 함수도 일급 객체이므로 Array.prototype.map, Array.prototype.filter, Array.prototype.reduce 와 같은 고차함수에 인수로 전달할 수 있다.</p>
+</li>
+<li><p>이 경우 일반적인 함수 표현식보다 간결하다</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="params">v</span> =&gt;</span> v * <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>화살표 함수는 콜백 함수로서 정의할 때 유용하다.</p>
+</li>
+<li><p>화살표 함수는 일반함수의 기능을 간략화 했으며 this를 사용하는 것도 편리하게 설계되어있다.</p>
+</li>
+</ul>
+<h3 id="3-2-화살표-함수와-일반-함수의-차이"><a href="#3-2-화살표-함수와-일반-함수의-차이" class="headerlink" title="3-2 화살표 함수와 일반 함수의 차이"></a>3-2 화살표 함수와 일반 함수의 차이</h3><ol>
+<li>화살표 함수는 인스턴스를 생성할 수 없는 non-constructor이다.</li>
+<li>중복된 매개변수 이름을 선언할 수 없다.</li>
+<li>화살표 함수는 함수 자체의 this, arguments, super, new.target 바인딩을 갖지 않는다.<ul>
+<li>화살표 함수 내부에서 this, arguments, super, new.target을 참조하면 스코프 체인을 통해 상위 컨텍스트의 this, arguments, super, new.target을 참조한다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-3-this"><a href="#3-3-this" class="headerlink" title="3-3 this"></a>3-3 this</h3><ul>
+<li>화살표 함수가 일반 함수와 구별되는 가장 큰 특징은 this이다.</li>
+<li>화살표 함수는 다른 함수의 인수로 전달되어 중첩함수로 사용되는 경우가 많다.(콜백함수)</li>
+</ul>
+<p><em>콜백함수로 일반함수 사용시 문제점</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prefixer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(prefix) &#123;</span><br><span class="line">    <span class="keyword">this</span>.prefix = prefix;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  prefixArray(arr) &#123;</span><br><span class="line">    <span class="comment">// 프로토타입 메소드 내부 this는 메소드흫 호출 한 객체임</span></span><br><span class="line">    <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.prefix + <span class="string">' '</span> + item;</span><br><span class="line">      <span class="comment">// TypeError: Cannot read property 'prefix' of undefined</span></span><br><span class="line">      <span class="comment">// 중첩 함수 내 this는 전역을 가르키나 전역 프로퍼티에 prefix가 없음</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> prefixer = <span class="keyword">new</span> Prefixer(<span class="string">'Hi'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(prefixer.prefixArray([<span class="string">'Song'</span>, <span class="string">'Lee'</span>]));</span><br></pre></td></tr></table></figure>
+
+<p><em>해결방안 1</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prefixer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(prefix) &#123;</span><br><span class="line">    <span class="keyword">this</span>.prefix = prefix;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  prefixArray(arr) &#123;</span><br><span class="line">    <span class="keyword">const</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">// 프로토타입 메소드 내부 this는 메소드를 호출한 객체(prefixer)</span></span><br><span class="line">    <span class="comment">// 메소드 내부 this를 that으로 회피</span></span><br><span class="line">    <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.prefix + <span class="string">' '</span> + item; <span class="comment">// this를 that으로 교체</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> prefixer = <span class="keyword">new</span> Prefixer(<span class="string">'Hi'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(prefixer.prefixArray([<span class="string">'Song'</span>, <span class="string">'Lee'</span>]));</span><br></pre></td></tr></table></figure>
+
+<p><em>해결방안2</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prefixer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(prefix) &#123;</span><br><span class="line">    <span class="keyword">this</span>.prefix = prefix;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  prefixArray(arr) &#123;</span><br><span class="line">    <span class="comment">// 프로토타입 메소드 내부 this는 메소드를 호출한 객체(prefixer)</span></span><br><span class="line">    <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.prefix + <span class="string">' '</span> + item;</span><br><span class="line">    &#125;, <span class="keyword">this</span>); <span class="comment">// .map 메소드의 두번째 매개변수로 this전달</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> prefixer = <span class="keyword">new</span> Prefixer(<span class="string">'Hi'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(prefixer.prefixArray([<span class="string">'Song'</span>, <span class="string">'Lee'</span>]));</span><br></pre></td></tr></table></figure>
+
+<p><em>해결방안3</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prefixer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(prefix) &#123;</span><br><span class="line">    <span class="keyword">this</span>.prefix = prefix;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  prefixArray(arr) &#123;</span><br><span class="line">    <span class="comment">// 프로토타입 메소드 내부 this는 메소드를 호출한 객체(prefixer)</span></span><br><span class="line">    <span class="keyword">return</span> arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.prefix + <span class="string">' '</span> + item;</span><br><span class="line">    &#125;.bind(<span class="keyword">this</span>)); <span class="comment">// .bind 메소드를 사용하여 외부 함수의 this로 중첩함수 this를 바인딩</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> prefixer = <span class="keyword">new</span> Prefixer(<span class="string">'Hi'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(prefixer.prefixArray([<span class="string">'Song'</span>, <span class="string">'Lee'</span>]));</span><br></pre></td></tr></table></figure>
+
+<p><em>화살표 함수 사용으로 해결</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prefixer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(prefix) &#123;</span><br><span class="line">    <span class="keyword">this</span>.prefix = prefix;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  prefixArray(arr) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.prefix&#125;</span> <span class="subst">$&#123;item&#125;</span>`</span>);</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> prefixer = <span class="keyword">new</span> Prefixer(<span class="string">'Hi'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(prefixer.prefixArray([<span class="string">'Song'</span>, <span class="string">'Lee'</span>]));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>화살표 함수는 함수 내부에서 this를 참조하면 상위 컨텍스트의 this를 그대로 참조함</li>
+<li>이를 Lexical this라고 함 (화살표 함수의 this가 함수가 정의된 위치에 의해 결정)</li>
+<li>일반적인 컨텍스트는 this 바인딩이 반드시 존재하기에 스코프를 통해 검색 할 필요가 없다.</li>
+<li>하지만 화살표 함수는 this 바인딩이 존재하지 않아 스코프 체인을 통해 검색하게 된다</li>
+<li>화살표 함수 내부의 this는 .call, .apply, .bind 메소드를 사용할 수 없다.</li>
+<li>메소드를 화살표 함수로 정의하는것은 피해야 한다.</li>
+</ul>
+<h3 id="3-4-super"><a href="#3-4-super" class="headerlink" title="3-4 super"></a>3-4 super</h3><ul>
+<li>화살표 함수는 함수 자체의 super 바인딩이 없음</li>
+<li>화살표 함수 내부에서 super를 참조하면 상위 컨텍스트의 super를 참조함</li>
+</ul>
+<h3 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a>arguments</h3><ul>
+<li>화살표 함수는 함수 자체의 arguments 바인딩이 없다. 따라서 화살표 내부에서 arguments 를 참조하면 상위 컨텍스트의 arguments를 참조한다.</li>
+</ul>
+<hr>
+<h2 id="4-Rest-파라미터"><a href="#4-Rest-파라미터" class="headerlink" title="4. Rest 파라미터"></a>4. Rest 파라미터</h2><ul>
+<li>Rest 파라미터는 매개변수 이름 앞에 세개의 점 …을 붙여서 정의한 매개변수를 의미함</li>
+<li>Rest 파라미터는 함수에 전달된 인수들의 목록을 배열로 전달받음</li>
+<li>Rest 파라미터는 할당된 인수를 제외한 나머지 인수들이 모두 배열에 담겨 할당되므로 반드시 마지막 파라미터이어야 한다.</li>
+<li>Rest 파라미터는 단 하나만 선언 할 수 있다.</li>
+<li>Rest 파라미터는 함수 정의 시 선언한 매개변수 개수를 나타내는 함수 객체의 length 프로퍼티에 영향을 주지 않음</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(rest); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br><span class="line">&#125;</span><br><span class="line">foo (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/18/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-18%20%ED%81%B4%EB%9E%98%EC%8A%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,10 +632,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
-              
 
-              <time title="Post created: 2020-03-18 15:56:08 / Updated at: 19:51:22" itemprop="dateCreated datePublished" datetime="2020-03-18T15:56:08+09:00">2020-03-18</time>
+              <time title="Post created: 2020-03-18 15:56:08" itemprop="dateCreated datePublished" datetime="2020-03-18T15:56:08+09:00">2020-03-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-03-19 21:52:32" itemprop="dateModified" datetime="2020-03-19T21:52:32+09:00">2020-03-19</time>
+              </span>
 
           
 
@@ -442,9 +654,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          class Person {
-  name = 'Song';
+          function foo(...rest) {
+  console.log(rest); // [ 1, 2, 3, 4, 5 ]
 }
+foo (1, 2, 3, 4, 5);
       
     </div>
 
@@ -486,10 +699,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
-              
 
-              <time title="Post created: 2020-03-18 10:11:41 / Updated at: 16:47:45" itemprop="dateCreated datePublished" datetime="2020-03-18T10:11:41+09:00">2020-03-18</time>
+              <time title="Post created: 2020-03-18 10:11:41" itemprop="dateCreated datePublished" datetime="2020-03-18T10:11:41+09:00">2020-03-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-03-19 14:44:47" itemprop="dateModified" datetime="2020-03-19T14:44:47+09:00">2020-03-19</time>
+              </span>
 
           
 
@@ -512,16 +731,31 @@
 </head>
 <body>
   <script>
-    var arr = [];
-    for (var i = 0; i < 5; i++) {
-      arr[i] = function () {
-        return i;
-      };
+    function makeCounter(predicate) {
+      let counter = 0;
+
+      return function () {
+        counter = predicate(counter);
+        return counter
+      }
     }
 
-    for (var j = 0; j < arr.length; j++) {
-      console.log(arr[j]());
+    function increase(n) {
+      return ++n;
     }
+
+    function decrease(n) {
+      return --n;
+    }
+
+    const increaser = makeCounter(increase);
+    console.log(increaser());
+    console.log(increaser());
+
+
+    const decreaser = makeCounter(decrease);
+    console.log(decreaser());
+    console.log(decreaser());
   </script>
 </body>
 </html>
@@ -1311,90 +1545,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/14/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%97%B0%EC%8A%B5%20%EB%AC%B8%EC%A0%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="angryboo">
-      <meta itemprop="description" content="I can do this all day">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="angryboo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/14/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%97%B0%EC%8A%B5%20%EB%AC%B8%EC%A0%9C/" class="post-title-link" itemprop="url">문제 풀이/알고리즘 연습 문제</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-              
-
-              <time title="Post created: 2020-03-14 21:17:32 / Updated at: 21:19:58" itemprop="dateCreated datePublished" datetime="2020-03-14T21:17:32+09:00">2020-03-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/" itemprop="url" rel="index">
-                    <span itemprop="name">문제풀이</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="알고리즘-연습문제-과제-제출"><a href="#알고리즘-연습문제-과제-제출" class="headerlink" title="알고리즘 연습문제 과제 제출"></a>알고리즘 연습문제 과제 제출</h1><ol>
-<li>선형검색<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">linearSearch</span>(<span class="params">array, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (array[i] === target) <span class="keyword">return</span> i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">1</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">2</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">3</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">4</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">5</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">6</span>)); <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">7</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">-1</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<ol start="2">
-<li>이진 검색<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">binarySearch</span>(<span class="params">array, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> start = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> end = array.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">    <span class="keyword">const</span> mid = <span class="built_in">Math</span>.floor((start + end) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (array[mid] &lt; target) start = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &gt; target) end = mid - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] === target) <span class="keyword">return</span> mid;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">1</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">4</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">5</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">8</span>)); <span class="comment">// 7</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">17</span>, <span class="number">50</span>, <span class="number">70</span>], <span class="number">15</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], <span class="number">7</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>], <span class="number">-5</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<ol start="3">
-<li>버블 정렬<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> sort = array;</span><br><span class="line">  <span class="keyword">let</span> range = array.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; range; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (sort[j] &gt; sort[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">const</span> now = sort[j];</span><br><span class="line">        <span class="keyword">const</span> next = sort[j + <span class="number">1</span>];</span><br><span class="line">        sort[j] = next;</span><br><span class="line">        sort[j + <span class="number">1</span>] = now;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    range -= <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sort;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>])); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>])); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>])); <span class="comment">// [ 1, 2, 3, 4, 5, 6 ]</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1465,7 +1615,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>

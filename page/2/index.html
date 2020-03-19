@@ -150,6 +150,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/14/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%97%B0%EC%8A%B5%20%EB%AC%B8%EC%A0%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/14/%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%97%B0%EC%8A%B5%20%EB%AC%B8%EC%A0%9C/" class="post-title-link" itemprop="url">문제 풀이/알고리즘 연습 문제</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-03-14 21:17:32 / Updated at: 21:19:58" itemprop="dateCreated datePublished" datetime="2020-03-14T21:17:32+09:00">2020-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/" itemprop="url" rel="index">
+                    <span itemprop="name">문제풀이</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="알고리즘-연습문제-과제-제출"><a href="#알고리즘-연습문제-과제-제출" class="headerlink" title="알고리즘 연습문제 과제 제출"></a>알고리즘 연습문제 과제 제출</h1><ol>
+<li>선형검색<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">linearSearch</span>(<span class="params">array, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (array[i] === target) <span class="keyword">return</span> i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">1</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">2</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">3</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">4</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">5</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">6</span>)); <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">7</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(linearSearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">-1</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>이진 검색<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">binarySearch</span>(<span class="params">array, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> start = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> end = array.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">    <span class="keyword">const</span> mid = <span class="built_in">Math</span>.floor((start + end) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (array[mid] &lt; target) start = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &gt; target) end = mid - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] === target) <span class="keyword">return</span> mid;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">1</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">4</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">5</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">8</span>)); <span class="comment">// 7</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">17</span>, <span class="number">50</span>, <span class="number">70</span>], <span class="number">15</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], <span class="number">7</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>], <span class="number">-5</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>버블 정렬<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> sort = array;</span><br><span class="line">  <span class="keyword">let</span> range = array.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; range; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (sort[j] &gt; sort[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">const</span> now = sort[j];</span><br><span class="line">        <span class="keyword">const</span> next = sort[j + <span class="number">1</span>];</span><br><span class="line">        sort[j] = next;</span><br><span class="line">        sort[j + <span class="number">1</span>] = now;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    range -= <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sort;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>])); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>])); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>])); <span class="comment">// [ 1, 2, 3, 4, 5, 6 ]</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/11/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-12%20%EC%98%88%EC%8A%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2298,177 +2382,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/02/20/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-02-20%20%EC%98%88%EC%8A%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="angryboo">
-      <meta itemprop="description" content="I can do this all day">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="angryboo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/20/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-02-20%20%EC%98%88%EC%8A%B5/" class="post-title-link" itemprop="url">2020-02-20 예습</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-
-              <time title="Post created: 2020-02-20 20:00:00" itemprop="dateCreated datePublished" datetime="2020-02-20T20:00:00+09:00">2020-02-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-02 22:48:00" itemprop="dateModified" datetime="2020-03-02T22:48:00+09:00">2020-03-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">예습</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="표현식과-문"><a href="#표현식과-문" class="headerlink" title="표현식과 문"></a>표현식과 문</h1><p><img src="../image/IMG_34FD262B2561-1.jpeg" alt="값과 리터럴, 표현식의 관계"></p>
-<h3 id="값"><a href="#값" class="headerlink" title="값"></a>값</h3><ul>
-<li>값은 표현식이 평가되어 생성된 결과가 메모리에 저장된 것</li>
-<li>값은 메모리에 2진수 형태로 저장됨</li>
-<li>모든 값은 데이터 타입을 가짐</li>
-<li>값은 데이터 타입에 따라 같은 2진수 값이라도 다르게 해석될 수 있음</li>
-</ul>
-<h3 id="리터럴"><a href="#리터럴" class="headerlink" title="리터럴"></a>리터럴</h3><ul>
-<li>사람이 이해할 수 있는 문자 또는 약속된 기호를 사용하여 값을 생성하는 표기방식</li>
-</ul>
-<h3 id="표현식"><a href="#표현식" class="headerlink" title="표현식"></a>표현식</h3><ul>
-<li>값으로 평가될 수 있는 모든 문(statement)</li>
-<li>리터럴은 자바스크립트 엔진에 의해 평가되어 값을 생성하므로 리터럴 그 자체로 표현식임</li>
-<li>표현식은 리터럴, 식별자, 연산자, 함수호출 등의 조합으로 이루어질 수 있음</li>
-<li>표현식과 표현식이 평가된 값은 동등한 관계(동치)</li>
-<li>표현식은 값처럼 사용할 수 있음(값이 위치할 수 있는 자리에는 표현식도 위치 가능)</li>
-</ul>
-<h3 id="문-statement"><a href="#문-statement" class="headerlink" title="문(statement)"></a>문(statement)</h3><ul>
-<li>프로그램을 구성하는 기본 단위이자 최소 실행 단위</li>
-<li>문은 여러 토큰들로 구성 됨(토큰은 문법적으로 더이상 나눌 수 없는 코드의 기본 요소)</li>
-<li>문은 컴퓨터에 내리는 명령임</li>
-<li>할당문 반복문 조건문 으로 구성됨</li>
-</ul>
-<h3 id="세미콜론-자동-완성-기능"><a href="#세미콜론-자동-완성-기능" class="headerlink" title="세미콜론 자동 완성 기능"></a>세미콜론 자동 완성 기능</h3><ul>
-<li>함수의 코드블록 뒤에는 세미콜론을 붙이지 않음(함수의 코드 블록은 자체 종결성을 갖음)</li>
-<li>자바스크립트 엔진은 문의 끝이라 예측되는 지점에 세미콜론을 자동으로 붙여주는 기능이 있음</li>
-<li>세미콜론 사용을 권장함</li>
-</ul>
-<h3 id="표현식인-문과-표현식이-아닌-문"><a href="#표현식인-문과-표현식이-아닌-문" class="headerlink" title="표현식인 문과 표현식이 아닌 문"></a>표현식인 문과 표현식이 아닌 문</h3><ul>
-<li>표현식인 문 : 값으로 평가될 수 있는 문</li>
-<li>표현식이 아닌 문 : 값으로 평가될 수 없는 문</li>
-</ul>
-<h1 id="데이터타입"><a href="#데이터타입" class="headerlink" title="데이터타입"></a>데이터타입</h1><h3 id="원시타입-숫자-문자열-불리언-undefined-null-symbol"><a href="#원시타입-숫자-문자열-불리언-undefined-null-symbol" class="headerlink" title="원시타입(숫자, 문자열, 불리언, undefined, null, symbol)"></a>원시타입(숫자, 문자열, 불리언, undefined, null, symbol)</h3><h5 id="1-숫자"><a href="#1-숫자" class="headerlink" title="1. 숫자"></a>1. 숫자</h5><ul>
-<li>배정밀도 64비트 부동소수점 형식을 따름</li>
-<li>모든 수를 실수로 처리(정수만을 위한 타입이 없음)</li>
-<li>정수, 실수, 2진수, 8진수, 16진수 리터럴을 모두 메모리에 배정밀도 64비트 부동소수점 형식의 2진수로 저장됨</li>
-<li>자바스크립트는 2진수, 8진수, 16진수를 표현하기 위한 데이터 타입을 제공하지 않기 때문에 이들 값을 참조하면 모두 10진수로 해석됨</li>
-<li>숫자타입을 추가적으로 3가지 특별한 값들도 포함됨<ul>
-<li>Infinity : 양의 무한대</li>
-<li>-Infinity : 음의 무한대</li>
-<li>NaN : 산술 연산 불가</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-문자열"><a href="#2-문자열" class="headerlink" title="2. 문자열"></a>2. 문자열</h5><ul>
-<li><p>텍스트 데이터를 나타내는데 사용</p>
-</li>
-<li><p>작은따옴표(‘’), 큰따옴표(“”), 백틱(₩₩)(템플릿 리터럴)으로 텍스트를 감쌈(일반적으로는 작은 따옴표)</p>
-</li>
-<li><p>문자열을 따옴표로 감싸지 않으면 자바스크립트 엔진은 키워드나 식별자와 같은 토큰으로 인식함</p>
-<h6 id="2-1-템플릿-리터럴"><a href="#2-1-템플릿-리터럴" class="headerlink" title="2-1 템플릿 리터럴"></a>2-1 템플릿 리터럴</h6><ul>
-<li>일반적인 따옴표 대비 백틱을 사용</li>
-<li>ES6 부터 추가됨</li>
-<li>일반 문자열에서 줄바꿈을 허용되지 않지만 템플릿 문자열은 허용 됨</li>
-<li>모든 공백이 있는 그대로 적용 됨</li>
-<li>표현식 삽입을 통해 간단히 문자열을 삽입할 수 있음, 문자열 연산자보다 가독성 우수(${표현식})</li>
-<li>표현식의 평가 결과가 문자열이 아니더라도 강제로 문자열로 타입이 변환된다.</li>
-<li>일반 문자열에서의 표현식 삽입은 표현식 자체가 문자열이 됨</li>
-</ul>
-</li>
-</ul>
-<h5 id="3-불리언"><a href="#3-불리언" class="headerlink" title="3. 불리언"></a>3. 불리언</h5><ul>
-<li>참, 거짓을 나타내는 true, false뿐이다</li>
-</ul>
-<h5 id="4-undefined"><a href="#4-undefined" class="headerlink" title="4. undefined"></a>4. undefined</h5><ul>
-<li>변수 선언 시 자바스크립트 엔진의 초기화에 의해 할당되는 암묵적인 값</li>
-</ul>
-<h5 id="5-null"><a href="#5-null" class="headerlink" title="5. null"></a>5. null</h5><ul>
-<li>변수에 값이 없다는 것을 의도적으로 명시할 때 사용</li>
-<li>변수가 이전에 참조하던 값을 더이상 참조하지 않겠다는 의미임</li>
-</ul>
-<h5 id="6-symbol"><a href="#6-symbol" class="headerlink" title="6. symbol"></a>6. symbol</h5><ul>
-<li>충돌 위험이 없는 객체의 유일한 프로퍼티 키를 만들기 위해 사용한다</li>
-<li>함수를 호출해 생성하고 이때 생성된 심볼 값은 노출되지 않고 다른 값과 절대 중복되지 않음</li>
-</ul>
-<h3 id="객체타입"><a href="#객체타입" class="headerlink" title="객체타입"></a>객체타입</h3><ul>
-<li>원시타입의 6가지 데이터 타입 이외의 값</li>
-</ul>
-<h2 id="데이터-타입의-필요성"><a href="#데이터-타입의-필요성" class="headerlink" title="데이터 타입의 필요성"></a>데이터 타입의 필요성</h2><ul>
-<li>데이터 타입에 의한 메모리 공간의 크기 결정</li>
-<li>값을 참조할 때 한번에 읽어들여야 할 메모리 공간의 크기 결정</li>
-<li>데이터 타입에 의한 값의 해석</li>
-</ul>
-<h2 id="동적-타이핑"><a href="#동적-타이핑" class="headerlink" title="동적 타이핑"></a>동적 타이핑</h2><ul>
-<li>정적타입언어<ul>
-<li>변수의 타입을 설정할 수 없음</li>
-<li>변수에 선언한 타입에 맞는 값만 할당할 수 있음</li>
-<li>컴파일 시점에 타입을 체크하며 체크를 통과하지 못하면 에러 발생</li>
-</ul>
-</li>
-<li>동적타입언어(자바스크립트)<ul>
-<li>선언이 아닌 할당에 의해 타입이 결정됨</li>
-<li>재할당에 의해 변수의 타입은 언제든지 동적으로 변할 수 있음(동적 타이핑)</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -2539,7 +2452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
