@@ -150,6 +150,315 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/24/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-24%20%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B3%90%EB%A7%81%20%ED%95%A0%EB%8B%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/24/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-24%20%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B3%90%EB%A7%81%20%ED%95%A0%EB%8B%B9/" class="post-title-link" itemprop="url">디스트럭쳐링 할당</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-03-24 10:48:12 / Updated at: 12:54:44" itemprop="dateCreated datePublished" datetime="2020-03-24T10:48:12+09:00">2020-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">예습</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="디스트럭쳐링-할당"><a href="#디스트럭쳐링-할당" class="headerlink" title="디스트럭쳐링 할당"></a>디스트럭쳐링 할당</h1><ul>
+<li>디스트럭쳐링 할당은 구조화된 배열 또는 객체를 Destructuring하여 1개 이상의 변수에 개별적으로 할당하는 것을 말한다.</li>
+<li>배열 또는 객체 리터럴에서 필요한 값만을 추출하여 변수에 할당 할 때 유용함</li>
+<li>배열 디스트럭쳐링 할당을 위해서는 할당 연산자 왼쪽에 값을 할당 받을 변수를 선언해야 함(여러개 변수를 배열 리터럴 형식으로)</li>
+</ul>
+<h2 id="1-배열-디스트럭쳐링-할당"><a href="#1-배열-디스트럭쳐링-할당" class="headerlink" title="1. 배열 디스트럭쳐링 할당"></a>1. 배열 디스트럭쳐링 할당</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> one = arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> two = arr[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> three = arr[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(one, two, three); <span class="comment">// 1, 2, 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [one, two, three] = arr;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(one, two, three); <span class="comment">// 1, 2, 3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>배열 디스트럭쳐링 할당은 배열에서 필요한 요소만 추출하여 변수에 할당하고 싶을 때 유용함<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(today); <span class="comment">// 2020-03-24T02:01:05.529Z</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> formattedDate = today.toISOString().substring(<span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.log(formattedDate); <span class="comment">// 2020-03-24</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [year, month, day] = formattedDate.split(<span class="string">'-'</span>);</span><br><span class="line"><span class="built_in">console</span>.log([year, month, day]); <span class="comment">// [ '2020', '03', '24' ]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="2-객체-디스트럭쳐링-할당"><a href="#2-객체-디스트럭쳐링-할당" class="headerlink" title="2. 객체 디스트럭쳐링 할당."></a>2. 객체 디스트럭쳐링 할당.</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> user = &#123; <span class="attr">firstname</span>: <span class="string">'Buyong'</span>, <span class="attr">lastname</span>: <span class="string">'Song'</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> firstname = user.firstname;</span><br><span class="line"><span class="keyword">var</span> lastname = user.lastname;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(firstname, lastname); <span class="comment">// Buyong Song</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">firstname</span>: <span class="string">'Buyong'</span>, <span class="attr">lastname</span>: <span class="string">'Song'</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; lastname, firstname &#125; = user;</span><br><span class="line"><span class="comment">// 프로퍼티 축약표현</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(firstname, lastname); <span class="comment">// Buyong Song</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>객체의 프로퍼티 키와 가른 변수 이름으로 프로퍼티 값을 할당 받으려면 아래와 같이 변수를 선언한다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">firstname</span>: <span class="string">'Buyong'</span>, <span class="attr">lastname</span>: <span class="string">'Song'</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">lastname</span>: ln, <span class="attr">firstname</span>: fn &#125; = user;</span><br><span class="line"><span class="comment">// 프로퍼티 키가 lastname인 프로퍼티 값을 ln에 할당</span></span><br><span class="line"><span class="comment">// 프로퍼티 키가 firstname인 프로퍼티 값을 fn에 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(ln, fn); <span class="comment">// Song Buyong</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>객체 디스트럭쳐링 할당을 위한 변수에 기본값을 설정할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; firstname = <span class="string">'Buyong'</span>, lastname &#125; = &#123; <span class="attr">lastname</span>: <span class="string">'Song'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(firstname, lastname); <span class="comment">// Buyong Song</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">firstname</span>: fn = <span class="string">'Buyong'</span>, <span class="attr">lastname</span>: ln &#125; = &#123; <span class="attr">lastname</span>: <span class="string">'Song'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(fn, ln); <span class="comment">// Buyong Song</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>객체 디스트럭쳐링 할당은 프로퍼티 키로 객체에서 필요한 프로퍼티 값만을 추출 할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todo = &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">'HTML'</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; id &#125; = todo;</span><br><span class="line"><span class="built_in">console</span>.log(id); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>객체 디스트럭처링 할당은 객체를 인수로 전달받는 함수의 매개변수에도 사용할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printTodo</span>(<span class="params">todo</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`할일 <span class="subst">$&#123;todo.content&#125;</span>은 <span class="subst">$&#123;todo.completed ? <span class="string">'완료'</span> : <span class="string">'비완료'</span>&#125;</span> 상태입니다`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printTodo(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">'HTML'</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"><span class="comment">// 할일 HTML은 완료 상태입니다</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 위 예제에서 인수로 전달받는 매개변수 todo에 객체 디스트럭쳐링 할당을 사용하면 보다 간단하고 가독성 좋게 표현이 가능</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printTodo</span>(<span class="params">&#123; content, completed &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`할일 <span class="subst">$&#123;content&#125;</span>은 <span class="subst">$&#123;completed ? <span class="string">'완료'</span> : <span class="string">'비완료'</span>&#125;</span> 상태입니다`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printTodo(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">'HTML'</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"><span class="comment">// 할일 HTML은 완료 상태입니다</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>배열의 요소가 객체인 경우, 배열 디스트럭처링 할당을 혼용할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">'HTML'</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">'CSS'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">'JS'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [, &#123;id&#125;] = todos;</span><br><span class="line"><span class="built_in">console</span>.log(id); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>중첩객체의 경우 아래와 같이 사용한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  name: <span class="string">'Song'</span>,</span><br><span class="line">  address: &#123;</span><br><span class="line">    zipCode: <span class="string">'00000'</span>,</span><br><span class="line">    city: <span class="string">'Paju'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">address</span>: &#123; city &#125; &#125; = user;</span><br><span class="line"><span class="built_in">console</span>.log(city); <span class="comment">// Paju</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/24/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-24%20%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C%20%EB%AC%B8%EB%B2%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/24/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-24%20%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C%20%EB%AC%B8%EB%B2%95/" class="post-title-link" itemprop="url">스프레드 문법</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-03-24 09:33:01 / Updated at: 10:46:44" itemprop="dateCreated datePublished" datetime="2020-03-24T09:33:01+09:00">2020-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">예습</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="스프레드-문법"><a href="#스프레드-문법" class="headerlink" title="스프레드 문법"></a>스프레드 문법</h1><ul>
+<li>스프레드 문법 …은 하나로 웅쳐 있는 여러 값들의 집합을 펼쳐서 개별적인 목록을 만듬</li>
+<li>스프레드 문법을 사용할 수 있는 대상은 Array, String, Map, Set, DOM 컬렉션, Arguments와 같이 for…of 문으로 순회할수 있는 이터러블에 한정함</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] <span class="comment">// 1 2 3)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(...<span class="string">'hello'</span>) <span class="comment">// h e l l o</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(...new <span class="built_in">Map</span>([[<span class="string">'a'</span>, <span class="string">'1'</span>], [<span class="string">'b'</span>, <span class="string">'2'</span>]])); <span class="comment">// [ 'a', '1' ] [ 'b', '2' ]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(...new <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])); <span class="comment">// 1, 2, 3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>스프레드 문법의 결과물은 단독으로 사용할 수 없고, 아래와 같이 쉽표로 구분한 겂의 목록을 사용하는 문맥에서만 사용할 수 있다.<ul>
+<li>함수 호출문의 인수 목록</li>
+<li>배열 리터럴의 요소 목록</li>
+<li>객체 리터럴의 프로퍼티 목록</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="1-함수-호출문에서-사용하는-경우"><a href="#1-함수-호출문에서-사용하는-경우" class="headerlink" title="1. 함수 호출문에서 사용하는 경우"></a>1. 함수 호출문에서 사용하는 경우</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> maxValue = <span class="built_in">Math</span>.max(arr);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(maxValue); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line">maxValue = <span class="built_in">Math</span>.max(...arr);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(maxValue); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-배열-리터럴-내부에서-사용하는-경우"><a href="#2-배열-리터럴-내부에서-사용하는-경우" class="headerlink" title="2. 배열 리터럴 내부에서 사용하는 경우"></a>2. 배열 리터럴 내부에서 사용하는 경우</h2><h3 id="2-1-concat"><a href="#2-1-concat" class="headerlink" title="2-1 concat"></a>2-1 concat</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>].concat([<span class="number">3</span>, <span class="number">4</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [ 1, 2, 3, 4 ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> arr = [...[<span class="number">1</span>, <span class="number">2</span>], ...[<span class="number">3</span>, <span class="number">4</span>]];</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [ 1, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-push"><a href="#2-2-push" class="headerlink" title="2-2 push"></a>2-2 push</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1, arr2);</span><br><span class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">// [ 1, 2, 3, 4 ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">arr1.push(...arr2);</span><br><span class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">// [ 1, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-splice"><a href="#2-3-splice" class="headerlink" title="2-3 splice"></a>2-3 splice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">Array</span>.prototype.splice.apply(arr1, [<span class="number">1</span>, <span class="number">0</span>].concat(arr2));</span><br><span class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">arr1.splice(<span class="number">1</span>, <span class="number">0</span>, ...arr2);</span><br><span class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">// [ 1, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-배열-복사"><a href="#2-4-배열-복사" class="headerlink" title="2-4 배열 복사"></a>2-4 배열 복사</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> copy = origin.slice();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(copy); <span class="comment">// [1, 2]</span></span><br><span class="line"><span class="built_in">console</span>.log(copy === origin); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> origin = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> copy = [...origin];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(copy); <span class="comment">// [1, 2]</span></span><br><span class="line"><span class="built_in">console</span>.log(copy === origin); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="유사-배열-객체를-배열로-변환"><a href="#유사-배열-객체를-배열로-변환" class="headerlink" title="유사 배열 객체를 배열로 변환"></a>유사 배열 객체를 배열로 변환</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5 </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> args.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">pre, cur</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> pre + cur;</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = [...arguments];</span><br><span class="line">  <span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> pre + cur, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-객체-리터럴-내부에서-사용하는-경우"><a href="#3-객체-리터럴-내부에서-사용하는-경우" class="headerlink" title="3. 객체 리터럴 내부에서 사용하는 경우"></a>3. 객체 리터럴 내부에서 사용하는 경우</h2><ul>
+<li>객체 리터럴 프로퍼티 목록에서 스프레드 문법을 사용할 수 있는 스프레드 프로퍼티는 Rest 프로퍼티와 함께 2020년 3월 현재 TC39 프로세스의 stage4 단계에 제안되어 있음</li>
+<li>스프레드 문법의 대상은 이터러블 이어야 하지만 스프레드 프로퍼티 제안은 일반 객체를 대상으로도 스프레드 문법의 사용을 허용함</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> copy = &#123; ...obj &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(copy); <span class="comment">// &#123; x: 1, y: 2 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj === copy); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> merged = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, ...&#123; <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span>&#125;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(merged); <span class="comment">// &#123; x: 1, y: 2, a: 3, b: 4 &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/20/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-21%20%EB%B0%B0%EC%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="angryboo">
+      <meta itemprop="description" content="I can do this all day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="angryboo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/20/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-21%20%EB%B0%B0%EC%97%B4/" class="post-title-link" itemprop="url">배열</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-03-20 19:22:29 / Updated at: 20:15:55" itemprop="dateCreated datePublished" datetime="2020-03-20T19:22:29+09:00">2020-03-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">예습</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h1><h2 id="배열이란"><a href="#배열이란" class="headerlink" title="배열이란?"></a>배열이란?</h2><ul>
+<li>배열은 여러개의 값을 순차적으로 나열한 자료구조.</li>
+<li>배열이 가지고 있는 값을 요소 라고 함</li>
+<li>배열은 자신의 위치를 나타내는 0 이상의 정수 인덱스(index)를 갖음(배열의 값은 인덱스로 접근 함)</li>
+<li>배열은 요소의 개수, 즉 배열의 길이를 나타내는 length 프로퍼티를 갖음</li>
+</ul>
+<hr>
+<h2 id="자바스크립트에서-배열이란"><a href="#자바스크립트에서-배열이란" class="headerlink" title="자바스크립트에서 배열이란?"></a>자바스크립트에서 배열이란?</h2><ul>
+<li>자바스크립트에서 배열은 일반적인 배열의 동작을 흉내낸 특수한 객체이다.</li>
+<li>자바스크립트에서 배열은 각각의 배열의 요소를 위한 각각의 메오리 공안은 동일한 크기를 갖지 않아도 되며 연속적으로 이어져 있지 않을수 있음</li>
+<li>배열의 요소가 연속적으로 이어져 있지 않는 배열을 희소배열 이라고 함</li>
+<li>자바스크립트 배열은 인덱스를 프로퍼티 키로 갖으며 length 프로퍼티를 갖는 특수한 객체이다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  '0': &#123; value: 1, writable: true, enumerable: true, configurable: true &#125;,</span></span><br><span class="line"><span class="comment">  '1': &#123; value: 2, writable: true, enumerable: true, configurable: true &#125;,</span></span><br><span class="line"><span class="comment">  '2': &#123; value: 3, writable: true, enumerable: true, configurable: true &#125;,</span></span><br><span class="line"><span class="comment">  length: &#123; value: 3, writable: true, enumerable: false, configurable: false &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="일반적-배열과-자바스크립트-배열의-장단점"><a href="#일반적-배열과-자바스크립트-배열의-장단점" class="headerlink" title="일반적 배열과 자바스크립트 배열의 장단점"></a>일반적 배열과 자바스크립트 배열의 장단점</h3><ul>
+<li>일반적 배열은 인덱스로 배열 요소에 빠르게 접근할 수 있다. 하지만 특정 요소를 탐색하거나 요소를 삽입 또는 삭제하는 경우에는 비효율적임</li>
+<li>자바스크립트 배열은 해시 테이블로 구현된 객체이므로 인덱스로 배열 요소에 접근하는 경우, 일반적인 배열보다 성능적인 면에서 느릴수밖에 없는 구조적인 단점을 갖음, 하지만 특정 요소를 삽입 또는 삭제해야 하는 경우에는 일반적인 배열보다 빠른 성능을 기대할 수 있다.</li>
+</ul>
+<hr>
+<h2 id="3-length-프로퍼티와-희소배열"><a href="#3-length-프로퍼티와-희소배열" class="headerlink" title="3. length 프로퍼티와 희소배열"></a>3. length 프로퍼티와 희소배열</h2><ul>
+<li>length 프로퍼티는 요소의 개수, 배열의 길이를 나타내는 정수를 값으로 갖음</li>
+<li>length 프로퍼티의 값은 배열에 요소를 추가하거나 삭제하면 자동 갱신 됨</li>
+<li>length 프로퍼티의 값은 임의의 숫자값을 명시적으로 할당 할 수도 있음</li>
+<li>현재 length 프로퍼티 값보다 작은 숫자값을 할당하면 배열의 길이가 줄어듬</li>
+<li>현재 length 프로퍼티 값보다 큰 숫자값을 할당하는 경우 이때 length 숫자값음 실제로 변경이 되지만 배열의 길이가 늘어나지 않음(비어있는 요소를 위해 메모리 공간을 확보하지 않으며 빈 요소를 생성하지도 않음)</li>
+</ul>
+<hr>
+<h2 id="4-배열생성"><a href="#4-배열생성" class="headerlink" title="4. 배열생성"></a>4. 배열생성</h2><h3 id="4-1-배열-리터럴"><a href="#4-1-배열-리터럴" class="headerlink" title="4-1 배열 리터럴"></a>4-1 배열 리터럴</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">// 0개 이상의 요소를 쉼표로 구분하여 대괄호로 묶는다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line"><span class="comment">// length 프로퍼티 값이 0인 빈배열</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, , <span class="number">3</span>];</span><br><span class="line"><span class="comment">// lengrh 프로퍼티 값은 3이나 인덱스 1이 비어있는 희소배열</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-Array-생성자-함수"><a href="#4-2-Array-생성자-함수" class="headerlink" title="4-2 Array 생성자 함수"></a>4-2 Array 생성자 함수</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [ &lt;10 empty items&gt; ]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.length); <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(arr)); <span class="comment">// length: &#123; value: 10, writable: true, enumerable: false, configurable: false &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 전달된 인수가 1개이고 숫자인 경우, 인수를 length 프로퍼티의 값으로 갖는 배열을 생성</span></span><br><span class="line"><span class="comment">// 이때 생성된 배열은 희소 배열임</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> empty = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="built_in">console</span>.log(empty);</span><br><span class="line"><span class="comment">// 전달된 인수가 없을 경우 빈배열 생성</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>(&#123;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr1);</span><br><span class="line"><span class="comment">// 전달된 인수가 1개이지만 숫자가 아닌 경우 인수를 요소로 갖는 배열 생성</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr2);</span><br><span class="line"><span class="comment">// 전달된 인수가 2개 이상이면 인수를 요소로 갖는 배열 생성</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/19/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-19%20ES6%20%ED%95%A8%EC%88%98%EC%9D%98%20%EC%B6%94%EA%B0%80%20%EA%B8%B0%EB%8A%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -640,7 +949,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-19 21:52:32" itemprop="dateModified" datetime="2020-03-19T21:52:32+09:00">2020-03-19</time>
+                <time title="Updated at: 2020-03-24 12:54:44" itemprop="dateModified" datetime="2020-03-24T12:54:44+09:00">2020-03-24</time>
               </span>
 
           
@@ -654,10 +963,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          function foo(...rest) {
-  console.log(rest); // [ 1, 2, 3, 4, 5 ]
-}
-foo (1, 2, 3, 4, 5);
+          const user = {
+  name: 'Song',
+  address: {
+    zipCode: '00000',
+    city: 'Paju'
+  }
+};
+
+const { address: { city } } = user;
+console.log(city); // Paju
       
     </div>
 
@@ -1134,417 +1449,6 @@ foo (1, 2, 3, 4, 5);
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/15/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-15%20this/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="angryboo">
-      <meta itemprop="description" content="I can do this all day">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="angryboo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-15%20this/" class="post-title-link" itemprop="url">this</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-              
-
-              <time title="Post created: 2020-03-15 17:24:06 / Updated at: 19:20:43" itemprop="dateCreated datePublished" datetime="2020-03-15T17:24:06+09:00">2020-03-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">예습</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><h2 id="1-this-키워드"><a href="#1-this-키워드" class="headerlink" title="1. this 키워드"></a>1. this 키워드</h2><ul>
-<li>객체는 상태를 나타내는 프로퍼티와 동작을 나타내는 메소드를 하나의 논리적인 단위로 묶은 복합적인 자료구조임</li>
-<li>동작을 나타내는 메소드는 자신이 속한 객체의 상태, 즉 프로퍼티를 참조하고 변경 할 수 있어야 함</li>
-<li>이때 메소드가 자신이 속한 객체의 프로퍼티를 참조하려면 먼저 자신이 속한 객체를 가리키는 식별자를 참조할 수 있어야 함<ul>
-<li>메소드 내부에서 자신이 속한 객체의 프로퍼티를 참조하려면 메소드가 호출되는 시점에(참조 표현식이 평가되는 시점) 자신이 속한 객체가 생성되고 생성된 객체가 식별자에 할당이 되어야 함</li>
-</ul>
-</li>
-</ul>
-<p><strong>this는 자신이 속한 객체 또는 자신이 생성한 인스턴스를 가리키는 자기 참조 변수임</strong><br><strong>this를 통해 자신이 속산 객체 또는 자신이 생성할 인스턴스의 프로퍼티나 메소드를 참조할 수 있음</strong></p>
-<hr>
-<h2 id="2-함수-호출-방식과-this-바인딩"><a href="#2-함수-호출-방식과-this-바인딩" class="headerlink" title="2. 함수 호출 방식과 this 바인딩"></a>2. 함수 호출 방식과 this 바인딩</h2><p><strong>this가 가리키는 값, 즉 this 바인딩은 함수 호출 방식에 따라 동적으로 결정된다</strong></p>
-<ul>
-<li>렉시컬 스코프는 함수 정의가 평가되어 함수 객체가 생성되는 시점에 상위 스코프를 결정하고, this에 바인딩 될 객체는 함수 호출 시점에 결정 됨</li>
-</ul>
-<hr>
-<h3 id="2-1-일반함수-호출"><a href="#2-1-일반함수-호출" class="headerlink" title="2-1 일반함수 호출"></a>2-1 일반함수 호출</h3><ul>
-<li><p>기본적으로 this에 전역객체가 바인딩 됨</p>
-</li>
-<li><p>함수 중첩 사용 시에도 일반 함수로 호출하면 함수 내부의 this에는 전역 객체가 바인딩 됨</p>
-</li>
-<li><p>this는 객체의 프로퍼티나 메소드를 참조하기 위한 자기참조 변수이므로 객체를 생성하지 않는 일반함수에서 사용은 의미가 없음</p>
-</li>
-<li><p>메소드 내에서 정의한 중첩함수 내에서 일반함수로 호출 시에도 전역 객체가 바인딩 됨</p>
-</li>
-<li><p><em>일반 함수로 호출된 모든 함수 내부의 this에는 전역 객체가 바인딩 됨</em></p>
-</li>
-<li><p>메소드 내에서 정의한 중첩 함수 또는 메소드에게 전달한 콜백 함수의 this가 전역객체를 바인딩 하는 것은 문제가 있음</p>
-</li>
-<li><p>중첩 함수 또는 콜백 함수는 외부 함수를 돕는 헬퍼 함수로써 역할을 하는데 외부 함수 로직을 대신하는 경우가 대부분이나 외부 함수인 메소드와 중첩 함수의 this가 일치하지 않는다는것은 중첩함수나 콜백함수를 헬퍼함수로 동작하기 어렵게 된다.</p>
-</li>
-<li><p>메소드 내부의 중첩 함수나 콜백 함수의 this 바인딩을 메소드의 this 바인딩과 일치시키기 위한 방법은 아래와 같다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  value: <span class="number">100</span>,</span><br><span class="line">  foo() &#123;</span><br><span class="line">    <span class="keyword">const</span> that = <span class="keyword">this</span>; <span class="comment">// 메소드 내부의 this바인딩을 변수에 할당</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(that.value) <span class="comment">// 메소드 내부에서 this가 할당된 변수 that을 참조</span></span><br><span class="line">    &#125;, <span class="number">100</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.foo();</span><br></pre></td></tr></table></figure>
-<p>위 방법 이외에도 자바스크립트는 this를 명시적으로 바인딩 할 수 있는 Function.prototype.apply, Function.prototype.call, Function.prototype.bind 메소드를 제공한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  value: <span class="number">100</span>,</span><br><span class="line">  foo() &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.value)</span><br><span class="line">    &#125;.bind(<span class="keyword">this</span>), <span class="number">100</span>) <span class="comment">// bind 메소드로 명시적으로 this를 바인딩</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.foo();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="2-2-메소드-호출"><a href="#2-2-메소드-호출" class="headerlink" title="2-2 메소드 호출"></a>2-2 메소드 호출</h3><ul>
-<li>메소드 내부의 this는 메소드를 호출한 객체에 바인딩 된다</li>
-<li>메소드를 소유한 객체가 아닌 메소드를 호출한 객체에 바인딩 되는것에 주의한다.</li>
-<li>프로토타입 메소드 내부에서 사용된 this도 일반 메소드와 마찬가지로 해당 메소드를 호출한 객체에 바인딩 된다</li>
-</ul>
-<h3 id="2-3-생성자-함수-호출"><a href="#2-3-생성자-함수-호출" class="headerlink" title="2-3 생성자 함수 호출"></a>2-3 생성자 함수 호출</h3><ul>
-<li>생성자 함수 내부의 this에는 생성자 함수가 생성할 인스턴스가 바인딩 된다</li>
-<li>생성자 함수를 new연산자와 함께 호출하지 않으면 생성자 함수가 아니라 일반 함수로 동작한다.</li>
-</ul>
-<h3 id="2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출"><a href="#2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출" class="headerlink" title="2-4 Function.prototype.apply/call/bind 메소드에 의한 간접 호출"></a>2-4 Function.prototype.apply/call/bind 메소드에 의한 간접 호출</h3><ul>
-<li>apply, call 메소드는 인수로 this와 인수 리스트를 전달받아 함수를 호출한다.</li>
-<li>apply와 call메소드는 Function.prototype의 메소드이다.</li>
-<li>apply와 call 메소드는 Function 생성자 함수를 constructor 프로퍼티로 가리키는 모든 함수가 상속받아 사용할 수 있다.</li>
-<li>apply와 call 메소드는 호출할 함수에 인수를 전달할 방식만 다를 뿐 동일하게 동작한다</li>
-</ul>
-<p><strong>apply와 call 메소드의 본질적인 기능은 함수를 호출하는 것이다.</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getThisBinding</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> thisArg = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125; <span class="comment">// this로 사용할 객체</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getThisBinding()); <span class="comment">// window</span></span><br><span class="line"><span class="built_in">console</span>.log(getThisBinding.apply(thisArg)); <span class="comment">// Object &#123; a: 1 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(getThisBinding.call(thisArg)); <span class="comment">// Object &#123; a: 1 &#125;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(getThisBinding.apply(thisArg, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]));</span><br><span class="line"><span class="comment">// apply 메소드는 함수에 전달할 인수를 배열에 묶어 전달</span></span><br><span class="line"><span class="built_in">console</span>.log(getThisBinding.call(thisArg, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="comment">// call 메소드는 함수에 전달할 인수를 쉼표로 구분한 리스트로 전달</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>apply와 call 메소드의 대표적인 용도는 argument 객체와 같은 유사배셜 객체에 배열 메소드를 사용하는 경우다.</li>
-<li>argument객체는 배열이 아니기 때문에 Array.prototype.slice와 같은 배열 메소드를 사용할 수 없으나 apply와 call 메소드를 이용하면 가능하다</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/15/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-15%20%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="angryboo">
-      <meta itemprop="description" content="I can do this all day">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="angryboo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-15%20%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4/" class="post-title-link" itemprop="url">빌트인 객체</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-              
-
-              <time title="Post created: 2020-03-15 12:57:11 / Updated at: 17:23:20" itemprop="dateCreated datePublished" datetime="2020-03-15T12:57:11+09:00">2020-03-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">예습</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="빌트인-객체"><a href="#빌트인-객체" class="headerlink" title="빌트인 객체"></a>빌트인 객체</h1><h2 id="1-자바스크립트-객체의-분류"><a href="#1-자바스크립트-객체의-분류" class="headerlink" title="1. 자바스크립트 객체의 분류"></a>1. 자바스크립트 객체의 분류</h2><ol>
-<li>표준 빌트인 객체<ul>
-<li>ECMAScript 사양에 정의 된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공함.</li>
-<li>자바스크립트 실행환경과 관게없이 언제나 사용 가능 함</li>
-<li>전역 객체의 프로퍼티 처럼 제공됨으로 별도의 선언 없이 전역변수처럼 언제나 참조 가능</li>
-</ul>
-</li>
-<li>호스트 객체<ul>
-<li>ECMAScript 사양에는 정의되어 있지는 않지만 자바스크립트 실행환경에서 추가적으로 제공함</li>
-</ul>
-</li>
-<li>사용자 정의 객체<ul>
-<li>사용자가 직접 정의한 객체를 의미함</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="2-표준-빌트인-객체"><a href="#2-표준-빌트인-객체" class="headerlink" title="2. 표준 빌트인 객체"></a>2. 표준 빌트인 객체</h2><ul>
-<li>자바스크립트는 Object, String, Number, Boolean, Symbol, Date, Mathm RegExp, Array, Map/Set 등 40여개의 표준 빌트인 객체를 제공함</li>
-<li>Math, Reflect, JSON을 제외한 표준 빌트인 객체는 모두 인스턴스를 생성할 수 있는 생성자 함수 객체이다.</li>
-<li>생성자 함수 객체는 표준 빌트인 객체는 프로토타입 메소드와 정적 메소드를 제공하고 생성자함수 객체가 아닌 표준 빌트인 객체는 정적 메소드만을 제공한다.</li>
-<li>생성자 함수인 표준 빌트인 객체가 생성한 인스턴스의 프로토타입은 표준 빌트인 객체의 prototype 프로퍼티에 바인딩 된 객체다.</li>
-<li>표준 빌트인 객체의 prototype 프로퍼티에 바인딩 된 객ㅊ체는 다양한 기능의 메소드를 제공한다.</li>
-<li>또한 인스턴스 없이도 호출 가능한 정적 메소드도 제공한다.</li>
-</ul>
-<hr>
-<h2 id="3-원시값과-래퍼객체"><a href="#3-원시값과-래퍼객체" class="headerlink" title="3. 원시값과 래퍼객체"></a>3. 원시값과 래퍼객체</h2><ul>
-<li>원시값인 문자열, 숫자, 불리언 값의 경우, 마치 객체처럼 이들 원시값에 마침표 표기법으로 접근하면 자바스크립트 엔진이 일시적으로 원시값을 연관된 객체로 변환해 줌</li>
-<li>문자열, 숫자, 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 래퍼 객체라고 함</li>
-</ul>
-<hr>
-<h2 id="4-전역객체"><a href="#4-전역객체" class="headerlink" title="4. 전역객체"></a>4. 전역객체</h2><ul>
-<li><p>전역 객체는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체</p>
-</li>
-<li><p>어떤 객체에도 속하지 않은 최상위 객체</p>
-</li>
-<li><p>환경에 따라 브라우저에서는 window, node.js 에서는 global이 전역 객체를 가르킴</p>
-</li>
-<li><p>전역 객체는 표준 빌트인 객체와 환경에 따른 호스트객체, 그리고 var키워드로 선언한 전역 변수와 전역함수를 프로퍼티로 갖는다.</p>
-</li>
-<li><p>전역 객체의 특징</p>
-<ul>
-<li>전역 객체는 개발자가 의도적으로 생성할 수 없음.(전역 객체 생성자 함수도 없음)</li>
-<li>전역 객체를 참조할 때 window를 생략할 수 있다.</li>
-<li>전역 객체는 모든 표준 빌트인 객체를 프로퍼티로 가지고 있다.</li>
-<li>자바스크립트 실행 환경에 따라 추가적인 프로퍼티와 메소드를 갖는다.</li>
-<li>var 키워드로 선언한 전역변수와 선언하지 않은 변수에 값을 할당한 암묵적 전역, 그리고 전역 함수는 전역 객체의 프로퍼티가 된다.</li>
-<li>let, const로 선언한 전역변수는 전역 객체의 프로퍼티가 아니다.</li>
-<li>브라우저 환경의 모든 자바스크립트 코드는 하나의 전역객체 window를 공유한다. (파일이 분리되어 있어도 하나의 전역객체를 공유)</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-1-빌트인-전역-프로퍼티"><a href="#4-1-빌트인-전역-프로퍼티" class="headerlink" title="4-1 빌트인 전역 프로퍼티"></a>4-1 빌트인 전역 프로퍼티</h3><ul>
-<li>빌트인 전역 프로퍼티는 전역객체의 프로퍼티를 의미한다.</li>
-<li>주로 애플리케이션 전역에서 사용하는 값을 의미한다.</li>
-</ul>
-<ol>
-<li>Infinity : Infinity 프로퍼티는 양/음의 무한대를 나타내는 숫자값 Infinity를 갖는다.</li>
-<li>NaN : 숫자가 아님을 나타내는 숫자값 NaN을 갖는다.</li>
-<li>undefined : undefined 프로퍼티는 원시타입 undefined를 값으로 갖는다.</li>
-</ol>
-<h3 id="4-2-빌트인-전역함수"><a href="#4-2-빌트인-전역함수" class="headerlink" title="4-2 빌트인 전역함수"></a>4-2 빌트인 전역함수</h3><ul>
-<li>빌트인 전력함수는 애플리케이션 전역에서 호출할 수 있는 전역객체의 메소드임</li>
-</ul>
-<ol>
-<li>eval : 문자열 형태로 매개변수에 전달된 코드를 헌타임에 동적으로 평가하고 실행하여 결과값을 반환</li>
-<li>isFinite : 매개변수에 전달된 값이 정상적인 유한수인지 검사하여 불리언 타입으로 반환.</li>
-<li>isNaN : 매개변수에 전달된 값이 NaN 인지 검사하여 그 결과를 불리언 타입으로 반환</li>
-<li>parseFloat : 매개변수에 전달된 문자열을 부동소수점 숫자로 변환하여 반환(공백이 있으면 첫번째 문자열만 반환</li>
-<li>parselnt : 매개변수에 전달된 문자열을 정수형 숫자로 해석해서 반환(반환은 언제나 10진수임)</li>
-<li>encodeURI : / decodeURI<ul>
-<li>encodeURI는 매개변수로 전달 된 URI를 인코딩한다.</li>
-<li>인코딩 이란 URI 문자들을 이스케이프 처리 하는것</li>
-<li>이스케이프 처리는 문자를 아스키 문자 set으로 변환하는것</li>
-<li>decodeURI는 인코딩 된 문자를 매개변수로 받아 인코딩 이전으로 디코딩 한다.</li>
-</ul>
-</li>
-<li>encodeURIComponent / decodeURIComponent<ul>
-<li>encodeURIComponent는 매개변수로 전달 된 URI 구성요소를 인코딩 한다.</li>
-<li>쿼리 파라미터의 구분자도 인코딩 한다</li>
-</ul>
-</li>
-</ol>
-<h3 id="4-3-암묵적-전역"><a href="#4-3-암묵적-전역" class="headerlink" title="4-3 암묵적 전역"></a>4-3 암묵적 전역</h3><ul>
-<li>선언되지 않은 식별자(변수)에 값을 할당하면 자바스크립트 엔진이 암묵적으로 전역 객체의 프로퍼티를 동적 생성하여 값을 할당함</li>
-<li>전역 객체의 프로퍼티로 등록 되었을 뿐 변수는 아님</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://angryboo.github.io/2020/03/15/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-15%20%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="angryboo">
-      <meta itemprop="description" content="I can do this all day">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="angryboo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/JS%20%EC%88%98%EC%97%85%20%EC%98%88%EC%8A%B5/2020-03-15%20%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/" class="post-title-link" itemprop="url">엄격 모드</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-              
-
-              <time title="Post created: 2020-03-15 11:22:00 / Updated at: 12:56:43" itemprop="dateCreated datePublished" datetime="2020-03-15T11:22:00+09:00">2020-03-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%EC%98%88%EC%8A%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">예습</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="엄격모드"><a href="#엄격모드" class="headerlink" title="엄격모드"></a>엄격모드</h1><h2 id="1-strit-mode란"><a href="#1-strit-mode란" class="headerlink" title="1. strit mode란?"></a>1. strit mode란?</h2><ul>
-<li>오타나 문접 지식의 미비 등으로 인한 실수를 예방하기 위하여 ES5 부터 적용됨</li>
-<li>자바 스크립트 언어를 보다 엄격히 적용하여 기존에 무시되던 오류를 발생시킬 가능성이 높거나 자바스크립트 엔진의 최적화 작업에 문제를 일으킬 수 있는 코드에 대해 면시적인 에러를 발생시킴</li>
-</ul>
-<hr>
-<h2 id="2-strit-mode의-적용"><a href="#2-strit-mode의-적용" class="headerlink" title="2. strit mode의 적용"></a>2. strit mode의 적용</h2><ul>
-<li>strict mode를 적용하려면 전역의 선두 또는 함수 몸체의 선두에 <code>&#39;use strict&#39;;</code> 을 추가시킨다</li>
-<li>전역의 선두에 추가하면 스크립트 전체에 strict mode가 적용된다.</li>
-<li>함수 몸체 선두에 추가하면 해당 함수와 중첩된 함수에 stric mode가 적용된다</li>
-<li>코드의 선두에 stric mode를 위치시키지 않으면 제대로 동작하지 않는다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  x = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h2 id="3-전역에-strict-mode를-적용하는것은-피하자"><a href="#3-전역에-strict-mode를-적용하는것은-피하자" class="headerlink" title="3. 전역에 strict mode를 적용하는것은 피하자"></a>3. 전역에 strict mode를 적용하는것은 피하자</h2><ul>
-<li>외부 서드파티 라이브러리를 사용하는 경우, 라이브러리가 non-strict mode일 경우도 있기 때문에 strict mode를 적용하는것은 바람직하지 않다.</li>
-</ul>
-<hr>
-<h2 id="4-함수단위로-strict-mode를-적용하는것도-피하자"><a href="#4-함수단위로-strict-mode를-적용하는것도-피하자" class="headerlink" title="4. 함수단위로 strict mode를 적용하는것도 피하자"></a>4. 함수단위로 strict mode를 적용하는것도 피하자</h2><ul>
-<li>어떤함수는 적용하고 어떤함수는 적용하지 않는 것은 바람직하지 않음</li>
-<li>함수에 일일히 strict mode를 적용하는 것은 번거로움</li>
-<li>stric mode가 적용된 함수가 참조할 함수 외부의 컨텍스트에 strict mode를 적용하지 않는다면 문제가 발생할 가능성이 있음</li>
-</ul>
-<hr>
-<h2 id="5-strict-mode가-발생시키는-에러"><a href="#5-strict-mode가-발생시키는-에러" class="headerlink" title="5. strict mode가 발생시키는 에러"></a>5. strict mode가 발생시키는 에러</h2><ol>
-<li>암묵적 전역<ul>
-<li>선언하지 않는 변수 참조 시 ReferenceError 발생</li>
-</ul>
-</li>
-<li>변수, 함수, 매개변수의 삭제<ul>
-<li>delete 연산자로 변수, 함수, 매개변수를 삭제하면 SyntaxError가 발생한다.</li>
-</ul>
-</li>
-<li>매개변수 이름의 중복<ul>
-<li>중복된 함수 매개변수 이름을 사용하면 SyntaxError 가 발생한다.</li>
-</ul>
-</li>
-<li>with 문의 사용<ul>
-<li>whit 문을 사용하면 SyntaxError가 발생한다.</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="6-Strict-mode-적용에-의한-변화"><a href="#6-Strict-mode-적용에-의한-변화" class="headerlink" title="6. Strict mode 적용에 의한 변화"></a>6. Strict mode 적용에 의한 변화</h2><ol>
-<li><p>일반 함수의 this</p>
-<ul>
-<li>strict mode에서 함수를 일반 함수로서 호출하면 this에 undefined가 바인딩 된다</li>
-<li>생성자 함수가 아닌 일반 함수 내부에서는 this를 사용할 필요가 없기 때문이다.</li>
-</ul>
-</li>
-<li><p>argument 객체</p>
-<ul>
-<li>strict mode 에서는 매개변수에 전달된 인수를 재할당하여 변경하여도 arguments 객체에 반영되지 않는다  </li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1615,7 +1519,7 @@ foo (1, 2, 3, 4, 5);
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
